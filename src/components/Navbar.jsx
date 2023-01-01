@@ -42,6 +42,7 @@ export default function Navbar() {
 
   const { data } = useContext(UserContext);
   console.log("User navBar: ", data);
+  console.log("User avatar: ", data?.user?.user_metadata?.avatar_url);
 
   const handleLogout = () => {
     supabase.auth.signOut();
@@ -72,7 +73,7 @@ export default function Navbar() {
                 cursor={"pointer"}
                 minW={0}
               >
-                {data?.user?.user_metadata ? (
+                {data ? (
                   <Avatar
                     size={{ base: "sm", sm: "sm", md: "md", lg: "lg" }}
                     src={data?.user?.user_metadata?.avatar_url}
