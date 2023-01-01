@@ -1,4 +1,4 @@
-﻿import { ReactNode, useContext } from "react";
+﻿import { useContext } from "react";
 import "@fontsource/pacifico";
 import {
   Box,
@@ -15,12 +15,9 @@ import {
   useDisclosure,
   useColorModeValue,
   Stack,
-  Image,
   Heading,
 } from "@chakra-ui/react";
-import { SingUp } from "./SignUp";
 import { SingIn } from "./SignIn";
-import * as COLORS from "../utils/Colors";
 import UserContext from "../context/providers/userContext";
 import { supabase } from "../backend/supabase/client";
 
@@ -40,20 +37,25 @@ const NavLink = ({ children }) => (
 );
 
 export default function Navbar() {
-  const Logo = "https://i.imgur.com/7f2oIn8.png";
   const { isOpen, onOpen, onClose } = useDisclosure();
   const Links = ["Inicio", "Acerca de", "Contacto"];
 
   const { data } = useContext(UserContext);
   console.log("User navBar: ", data);
 
+  const handleLogout = () => {
+    supabase.auth.signOut();
+  };
+
   return (
     <>
       <Box bg={useColorModeValue("gray.100", "gray.900")} px={6} py={6}>
         <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
           <HStack spacing={8} alignItems={"center"}>
-            <Box bg={"blue.700"} color="white" p={5} borderRadius="10px">
-              <Heading>alquilan2</Heading>
+            <Box bg={"blue.700"} color="white" p={3} borderRadius="10px">
+              <Heading as="h1" size="lg">
+                alquilan2
+              </Heading>
             </Box>
           </HStack>
           <Flex alignItems={"center"}>
@@ -76,18 +78,12 @@ export default function Navbar() {
                     src={data?.user?.user_metadata?.avatar_url}
                   />
                 ) : (
-                  <Avatar
-                    size={{ base: "sm", sm: "sm", md: "md", lg: "lg" }}
-                    src={
-                      "https://images.unsplash.com/photo-1493666438817-866a91353ca9?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=b616b2c5b373a80ffc9636ba24f7a4a9"
-                    }
-                  />
+                  <Avatar size={{ base: "sm", sm: "sm", md: "md", lg: "lg" }} />
                 )}
               </MenuButton>
               {data?.user == null ? (
                 <MenuList>
-                  <SingUp name="Registrate" />
-                  <SingIn name="Iniciar sesión" />
+                  <SingIn name="Ingresar" />
                   <MenuItem>Pon tu casa en alquiler</MenuItem>
                   <MenuDivider />
                   <MenuItem>Ayuda</MenuItem>
@@ -97,10 +93,7 @@ export default function Navbar() {
                   <MenuItem> {data.user?.user_metadata?.name}</MenuItem>
                   <MenuDivider />
                   <MenuItem>
-                    <Button
-                      colorScheme={"blue"}
-                      onClick={() => supabase.auth.signOut()}
-                    >
+                    <Button colorScheme={"blue"} onClick={() => handleLogout()}>
                       Salir
                     </Button>
                   </MenuItem>
