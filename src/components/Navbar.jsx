@@ -90,7 +90,9 @@ export default function Navbar() {
                 </MenuList>
               ) : (
                 <MenuList>
-                  <MenuItem> {data.user?.user_metadata?.name}</MenuItem>
+                  <MenuItem>
+                    {data.user?.user_metadata?.name || data.user.email}
+                  </MenuItem>
                   <MenuDivider />
                   <MenuItem>
                     <Button colorScheme={"blue"} onClick={() => handleLogout()}>

@@ -28,7 +28,7 @@ export const SingIn = ({ name }) => {
 
   const [email, setEmail] = React.useState("");
 
-  const handleLogin = async (e) => {
+  const handleLinkMagicLogin = async (e) => {
     e.preventDefault();
     try {
       console.log(email);
@@ -76,7 +76,7 @@ export const SingIn = ({ name }) => {
           </ModalHeader>
           <ModalCloseButton />
           <ModalBody pb={6}>
-            <form onSubmit={handleLogin}>
+            <form onSubmit={handleLinkMagicLogin}>
               <FormControl>
                 <FormLabel>Correo existente</FormLabel>
                 <Input
