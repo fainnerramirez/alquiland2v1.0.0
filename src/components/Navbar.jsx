@@ -1,5 +1,7 @@
 ﻿import { useContext } from "react";
 import "@fontsource/pacifico";
+import UserContext from "../context/providers/userContext";
+
 import {
   Box,
   Flex,
@@ -17,8 +19,8 @@ import {
   Stack,
   Heading,
 } from "@chakra-ui/react";
+
 import { SingIn } from "./SignIn";
-import UserContext from "../context/providers/userContext";
 import { supabase } from "../backend/supabase/client";
 
 const NavLink = ({ children }) => (
@@ -50,10 +52,10 @@ export default function Navbar() {
 
   return (
     <>
-      <Box bg={useColorModeValue("gray.100", "gray.900")} px={6} py={6}>
+      <Box bg={useColorModeValue("#2B3467", "gray.900")} px={6} py={6}>
         <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
           <HStack spacing={8} alignItems={"center"}>
-            <Box bg={"blue.700"} color="white" p={3} borderRadius="10px">
+            <Box bg={"#EB455F"} color="white" p={3} borderRadius="10px">
               <Heading as="h1" size="lg">
                 alquilan2
               </Heading>
@@ -96,7 +98,7 @@ export default function Navbar() {
                   </MenuItem>
                   <MenuDivider />
                   <MenuItem>
-                    <Button colorScheme={"blue"} onClick={() => handleLogout()}>
+                    <Button colorScheme={"blue"} onClick={handleLogout}>
                       Salir
                     </Button>
                   </MenuItem>

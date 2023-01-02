@@ -3,9 +3,11 @@ import { CardItem } from "./CardItem";
 import { Box, Stack, Flex, Divider, Heading } from "@chakra-ui/react";
 import { Services } from "./Services";
 import cardContext from "../context/providers/CardContext";
+import UserContext from "../context/providers/userContext";
 
 export const Cards = ({ category }) => {
   const dataCard = useContext(cardContext);
+  const { data } = useContext(UserContext);
 
   let dataFilter = dataCard.filter(
     (e) => e.category.toLowerCase() === category.toLowerCase()
@@ -19,6 +21,15 @@ export const Cards = ({ category }) => {
         </Flex>
         <Divider />
       </Stack>
+
+      {data && data.user != null && (
+        <Box p={8} textAlign={"center"}>
+          <Heading>
+            Hola {data.user.user_metadata?.name || data.user?.email} ! explora a
+            alquilan2
+          </Heading>
+        </Box>
+      )}
       <Box
         display="flex"
         justifyContent="space-around"
