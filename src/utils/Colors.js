@@ -1,9 +1,5 @@
-const COLORS = {
-  rosado: "#EB455F",
-  blanco: "#FFFFFF",
-  blancoclaro: "#FCFFE7",
-  azulclaro: "#BAD7E9",
-  azuloscuro: "#BAD7E9",
+export const colors = {
+  azulOscuro: "#2B3467",
+  rosadoOscuro: "#EB455F",
+  blanco: "#FCFFE7",
 };
-
-export default COLORS;

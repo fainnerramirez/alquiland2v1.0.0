@@ -9,7 +9,7 @@
   Heading,
 } from "@chakra-ui/react";
 import { FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
-import { ReactNode } from "react";
+import { colors } from "../utils/Colors";
 
 const SocialButton = ({ children, label, href }) => {
   return (
@@ -38,8 +38,8 @@ const SocialButton = ({ children, label, href }) => {
 export const Footer = () => {
   return (
     <Box
-      bg={useColorModeValue("#2B3467", "gray.900")}
-      color={useColorModeValue("#FCFFE7", "#FCFFE7")}
+      bg={useColorModeValue(colors.azulOscuro, "gray.900")}
+      color={useColorModeValue(colors.blanco, colors.blanco)}
     >
       <Container
         as={Stack}
@@ -55,7 +55,7 @@ export const Footer = () => {
             alquilan2
           </Heading>
         </Box>
-        <Text>© 2022 Alquilan2. Todos los derechos reservados</Text>
+        <Text>© 2023 Alquilan2. Todos los derechos reservados</Text>
         <Stack direction={"row"} spacing={6}>
           <SocialButton label={"Twitter"} href={"#"}>
             <FaTwitter />

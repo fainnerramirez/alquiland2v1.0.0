@@ -18,6 +18,7 @@ import {
   useColorModeValue,
   Stack,
   Heading,
+  Text,
 } from "@chakra-ui/react";
 
 import { SingIn } from "./SignIn";
@@ -43,8 +44,6 @@ export default function Navbar() {
   const Links = ["Inicio", "Acerca de", "Contacto"];
 
   const { data } = useContext(UserContext);
-  console.log("User navBar: ", data);
-  console.log("User avatar: ", data?.user?.user_metadata?.avatar_url);
 
   const handleLogout = () => {
     supabase.auth.signOut();
@@ -94,7 +93,7 @@ export default function Navbar() {
               ) : (
                 <MenuList>
                   <MenuItem>
-                    {data.user?.user_metadata?.name || data.user.email}
+                    <Text>Ver Perfil</Text>
                   </MenuItem>
                   <MenuDivider />
                   <MenuItem>
