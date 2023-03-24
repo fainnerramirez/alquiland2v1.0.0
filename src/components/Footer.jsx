@@ -7,9 +7,9 @@
   useColorModeValue,
   VisuallyHidden,
   Heading,
+  Divider,
 } from "@chakra-ui/react";
 import { FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
-import { colors } from "../utils/Colors";
 
 const SocialButton = ({ children, label, href }) => {
   return (
@@ -37,25 +37,21 @@ const SocialButton = ({ children, label, href }) => {
 
 export const Footer = () => {
   return (
-    <Box
-      bg={useColorModeValue(colors.azulOscuro, "gray.900")}
-      color={useColorModeValue(colors.blanco, colors.blanco)}
-    >
+    <Box>
+      <Divider />
       <Container
         as={Stack}
         maxW={"6xl"}
-        py={4}
+        py={3}
         direction={{ base: "column", md: "row" }}
         spacing={4}
         justify={{ base: "center", md: "space-between" }}
         align={{ base: "center", md: "center" }}
       >
-        <Box bg={"blue.700"} color="white" p={3} borderRadius="10px">
-          <Heading as="h1" size="lg">
-            alquilan2
-          </Heading>
-        </Box>
-        <Text>© 2023 Alquilan2. Todos los derechos reservados</Text>
+        <Heading as="h1" size="md" color={"#EB455F"} fontWeight={"extrabold"}>
+          alquilapp
+        </Heading>
+        <Text>© 2023 Alquilapp. Todos los derechos reservados</Text>
         <Stack direction={"row"} spacing={6}>
           <SocialButton label={"Twitter"} href={"#"}>
             <FaTwitter />

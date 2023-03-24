@@ -4,13 +4,10 @@ import {
   CardBody,
   Image,
   Badge,
-  CardFooter,
   Divider,
   Text,
   Heading,
   Stack,
-  ButtonGroup,
-  Button,
   Box,
 } from "@chakra-ui/react";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
@@ -24,6 +21,8 @@ export const CardItem = ({
   user,
   category,
 }) => {
+  const image =
+    "https://a0.muscache.com/im/pictures/miso/Hosting-22319550/original/cc1fd71d-1a91-4026-99f8-c2cbffefd68f.jpeg?im_w=720";
   const [selectHeart, SetSelectHeart] = useState(false);
 
   const handleClickHeart = (e) => {
@@ -40,7 +39,7 @@ export const CardItem = ({
         ease: [0, 0.71, 0.2, 1.01],
       }}
     >
-      <Card maxW="sm" marginBottom="15px">
+      <Card maxW="330px" marginBottom="15px">
         <CardBody padding="0">
           <Box
             as="button"
@@ -59,19 +58,19 @@ export const CardItem = ({
             {category}
           </Badge>
           <Image
-            src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
+            src={image}
             alt="Green double couch with wooden legs"
-            borderRadius="lg"
-            minH="420px"
+            borderTopRadius="lg"
+            minH="320px"
             fallbackSrc="https://via.placeholder.com/420"
           />
           <Divider />
-          <Stack mt="6" spacing="3" p="2">
-            <Heading size="md">{location}</Heading>
-            <Text>
-              fue agregado el {dateAdd} - {user}
+          <Stack mt="1" spacing="3" p="2">
+            <Heading size="sm">{location}</Heading>
+            <Text size={"sm"} color="gray.500">
+              agregado el {dateAdd}
             </Text>
-            <Text color="blue.600" fontSize="2xl">
+            <Text fontWeight={"extrabold"} fontSize="sm">
               {price}
             </Text>
           </Stack>

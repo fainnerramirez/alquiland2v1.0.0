@@ -3,84 +3,79 @@ import CardContext from "./CardContext";
 import moment from "moment";
 
 export const CardProvider = ({ children }) => {
+  const image =
+    "https://pixabay.com/es/photos/casa-piscina-dise%c3%b1o-de-interiores-1477041/";
+
   const data = [
     {
       id: 1,
-      images:
-        "https://pixabay.com/es/photos/casa-piscina-dise%c3%b1o-de-interiores-1477041/",
-      location: "Barrio la esperanza- EL copey",
+      images: image,
+      location: "Santa Marta, Colombia",
       date: moment().format("d/MM/YYYY"),
-      price: "$450.000 mes",
+      price: "457.000 COP/mes",
       user: "Fainner Ramirez",
       category: "Casas",
     },
     {
       id: 2,
-      images:
-        "https://pixabay.com/es/photos/casa-piscina-dise%c3%b1o-de-interiores-1477041/",
-      location: "Barrio la esperanza- EL copey",
+      images: image,
+      location: "Santa Marta, Colombia",
       date: moment().format("d/MM/YYYY"),
-      price: "$450.000 mes",
+      price: "457.000 COP/mes",
       user: "Fainner Ramirez",
       category: "Casas",
     },
     {
       id: 3,
-      images:
-        "https://pixabay.com/es/photos/casa-piscina-dise%c3%b1o-de-interiores-1477041/",
-      location: "Finca el trebol - Bosconia",
+      images: image,
+      location: "Santa Marta, Colombia",
       date: moment().format("d/MM/YYYY"),
-      price: "$450.000 mes",
+      price: "457.000 COP/mes",
       user: "Fainner Ramirez",
       category: "Fincas",
     },
     {
       id: 4,
-      images:
-        "https://pixabay.com/es/photos/casa-piscina-dise%c3%b1o-de-interiores-1477041/",
-      location: "Finca ramirez - EL copey",
+      images: image,
+      location: "Santa Marta, Colombia",
       date: moment().format("d/MM/YYYY"),
-      price: "$450.000 mes",
+      price: "457.000 COP/mes",
       user: "Fainner Ramirez",
       category: "Fincas",
     },
     {
       id: 5,
-      images:
-        "https://pixabay.com/es/photos/casa-piscina-dise%c3%b1o-de-interiores-1477041/",
-      location: "Piscina A - Bosconio",
+      images: image,
+      location: "Santa Marta, Colombia",
       date: moment().format("d/MM/YYYY"),
-      price: "$450.000 por mes",
+      price: "450.000 COP/mes",
       user: "Fainner Ramirez",
       category: "Piscinas",
     },
     {
       id: 6,
-      images:
-        "https://pixabay.com/es/photos/casa-piscina-dise%c3%b1o-de-interiores-1477041/",
-      location: "Piscina Escape 22 - Algarrobo",
+      images: image,
+      location: "Santa Marta, Colombia",
       date: moment().format("d/MM/YYYY"),
-      price: "$450.000 mes",
+      price: "457.000 COP/mes",
       user: "Fainner Ramirez",
       category: "Piscinas",
     },
     {
       id: 7,
-      images:
-        "https://pixabay.com/es/photos/casa-piscina-dise%c3%b1o-de-interiores-1477041/",
-      location: "Piscina amalia rosa - Santa marta",
+      images: image,
+      location: "Santa Marta, Colombia",
       date: moment().format("d/MM/YYYY"),
-      price: "$450.000 mes",
+      price: "457.000 COP/mes",
       user: "Fainner Ramirez",
       category: "Piscinas",
     },
     {
       id: 8,
-      images:
-        "https://pixabay.com/es/photos/casa-piscina-dise%c3%b1o-de-interiores-1477041/",
-      location: "Barrio la el Bosque- EL copey",
+      images: image,
+      location: "Santa Marta, Colombia",
       date: moment().format("d/MM/YYYY"),
-      price: "$450.000 mes",
+      price: "457.000 COP/mes",
       user: "Fainner Ramirez",
       category: "Casas",
     },

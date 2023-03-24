@@ -1,13 +1,10 @@
 ﻿import { useContext } from "react";
 import "@fontsource/pacifico";
 import UserContext from "../context/providers/userContext";
-
 import {
   Box,
   Flex,
   Avatar,
-  HStack,
-  Link,
   Button,
   Menu,
   MenuButton,
@@ -15,29 +12,16 @@ import {
   MenuItem,
   MenuDivider,
   useDisclosure,
-  useColorModeValue,
   Stack,
   Heading,
   Text,
+  Divider,
 } from "@chakra-ui/react";
 
 import { SingIn } from "./SignIn";
 import { supabase } from "../backend/supabase/client";
 
-const NavLink = ({ children }) => (
-  <Link
-    px={2}
-    py={1}
-    rounded={"md"}
-    _hover={{
-      textDecoration: "none",
-      bg: useColorModeValue("gray.200", "gray.700"),
-    }}
-    href={"#"}
-  >
-    {children}
-  </Link>
-);
+import { Link as RouterLink } from "react-router-dom";
 
 export default function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -49,21 +33,36 @@ export default function Navbar() {
     supabase.auth.signOut();
   };
 
+  const image = "https://i.imgur.com/AeUBtNE.gif";
+
   return (
     <>
-      <Box bg={useColorModeValue("#2B3467", "gray.900")} px={6} py={6}>
+      <Box px={6} py={3}>
         <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
-          <HStack spacing={8} alignItems={"center"}>
-            <Box bg={"#EB455F"} color="white" p={3} borderRadius="10px">
-              <Heading as="h1" size="lg">
-                alquilan2
+          <Box display={"flex"}>
+            <Box>
+              <img
+                src={image}
+                alt="logo principal alquilapp"
+                width={"50px"}
+                height={"50px"}
+              />
+            </Box>
+            <Box color="white" p={3} borderRadius="10px">
+              <Heading
+                as="h1"
+                size="md"
+                color={"#EB455F"}
+                fontWeight={"extrabold"}
+              >
+                alquilapp
               </Heading>
             </Box>
-          </HStack>
+          </Box>
           <Flex alignItems={"center"}>
-            <Box m={5} bg={"blue.700"} color="white" p={2} borderRadius="10px">
+            <Box m={5} fontWeight="extrabold" p={2} borderRadius="10px">
               {data.user == null
-                ? "Pon tu casa en Alquilan2 "
+                ? "Pon tu producto en Alquilapp "
                 : data.user?.user_metadata?.name || data.user.email}
             </Box>
             <Menu>
@@ -76,7 +75,7 @@ export default function Navbar() {
               >
                 {data ? (
                   <Avatar
-                    size={{ base: "sm", sm: "sm", md: "md", lg: "lg" }}
+                    size={{ base: "sm", sm: "sm", md: "md", lg: "md" }}
                     src={data?.user?.user_metadata?.avatar_url}
                   />
                 ) : (
@@ -86,7 +85,9 @@ export default function Navbar() {
               {data?.user == null ? (
                 <MenuList>
                   <SingIn name="Ingresar" />
-                  <MenuItem>Pon tu casa en alquiler</MenuItem>
+                  <MenuItem>
+                    <a href={`/new-product`}>Publicar</a>
+                  </MenuItem>
                   <MenuDivider />
                   <MenuItem>Ayuda</MenuItem>
                 </MenuList>
@@ -111,12 +112,13 @@ export default function Navbar() {
           <Box pb={4} display={{ md: "none" }}>
             <Stack as={"nav"} spacing={4}>
               {Links.map((link) => (
-                <NavLink key={link}>{link}</NavLink>
+                <Text>hola</Text>
               ))}
             </Stack>
           </Box>
         ) : null}
       </Box>
+      <Divider colorScheme={"orange"} />
     </>
   );
 }

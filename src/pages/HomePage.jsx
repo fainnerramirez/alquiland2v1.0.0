@@ -1,5 +1,4 @@
 ﻿import React, { useEffect } from "react";
-import { Footer } from "../components/Footer";
 import { CardsContainer } from "../components/CardContainer";
 import { supabase } from "../backend/supabase/client";
 import { useNavigate } from "react-router-dom";

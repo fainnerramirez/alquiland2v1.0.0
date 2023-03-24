@@ -6,12 +6,15 @@ import {
   createBrowserRouter,
   RouterProvider,
   useNavigate,
+  BrowserRouter as Router,
 } from "react-router-dom";
 import { Footer } from "./components/Footer";
 import { Cards } from "./components/Cards";
 import Welcome from "./components/Welcome";
 import { supabase } from "./backend/supabase/client";
 import UserLogout from "./components/UserLogout";
+import { Layout } from "./components/Layout";
+import { NewProducto } from "./pages/NewProduct";
 
 const router = createBrowserRouter([
   {
@@ -69,15 +72,18 @@ const router = createBrowserRouter([
     element: <UserLogout />,
     errorElement: <ErrorPage />,
   },
+  {
+    path: "/new-product",
+    element: <NewProducto />,
+    errorElement: <ErrorPage />,
+  },
 ]);
 
 const App = () => {
   return (
-    <>
-      <Navbar />
+    <Layout>
       <RouterProvider router={router} />
-      <Footer />
-    </>
+    </Layout>
   );
 };
 

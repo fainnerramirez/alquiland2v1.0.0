@@ -22,7 +22,6 @@ import { supabase } from "../backend/supabase/client";
 
 export const SingIn = ({ name }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-
   const initialRef = React.useRef(null);
   const finalRef = React.useRef(null);
 
@@ -72,13 +71,13 @@ export const SingIn = ({ name }) => {
         <ModalOverlay />
         <ModalContent>
           <ModalHeader textAlign={"center"}>
-            ¡Te damos la bienvenida a alquilan2!
+            ¡Bienvenid@ a alquilapp!
           </ModalHeader>
           <ModalCloseButton />
           <ModalBody pb={6}>
             <form onSubmit={handleLinkMagicLogin}>
               <FormControl>
-                <FormLabel>Correo existente</FormLabel>
+                <FormLabel>Correo</FormLabel>
                 <Input
                   type="email"
                   ref={initialRef}
@@ -88,7 +87,7 @@ export const SingIn = ({ name }) => {
               </FormControl>
               <Box align="center" mt="4">
                 <Button type="submit" colorScheme="blue" mr={3}>
-                  Continuar
+                  Enviar Código
                 </Button>
               </Box>
               <Divider p="2" />
@@ -102,6 +101,7 @@ export const SingIn = ({ name }) => {
                   variant="outline"
                   leftIcon={<FcGoogle />}
                   onClick={handleLoginGoogle}
+                  disabled={true}
                 >
                   Continua con Google
                 </Button>

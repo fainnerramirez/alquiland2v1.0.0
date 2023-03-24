@@ -1,6 +1,6 @@
 ﻿import React, { useContext } from "react";
 import { CardItem } from "./CardItem";
-import { Box, Stack, Flex, Divider, Heading } from "@chakra-ui/react";
+import { Box, Stack, Flex, Divider, Heading, Text } from "@chakra-ui/react";
 import { Services } from "./Services";
 import cardContext from "../context/providers/CardContext";
 import UserContext from "../context/providers/userContext";
@@ -15,18 +15,17 @@ export const Cards = ({ category }) => {
 
   return (
     <Flex flexDirection="column">
-      <Stack p={5} spacing={5}>
-        <Flex alignItems={"center"} justifyContent={"space-around"}>
+      <Stack marginBottom={"20px"}>
+        <Flex alignItems={"center"} justifyContent={"space-evenly"}>
           <Services />
         </Flex>
         <Divider />
       </Stack>
-
       {data && data.user != null && (
         <Box p={8} textAlign={"center"}>
           <Heading>
             Hola {data.user.user_metadata?.name || data.user?.email} ! explora a
-            alquilan2
+            alquilapp
           </Heading>
         </Box>
       )}
@@ -35,6 +34,9 @@ export const Cards = ({ category }) => {
         justifyContent="space-around"
         alignItems="center"
         flexWrap="wrap"
+        paddingRight={"5%"}
+        paddingLeft={"5%"}
+        minH="100vh"
       >
         {category !== "todas" ? (
           dataFilter.length > 0 ? (
@@ -50,8 +52,12 @@ export const Cards = ({ category }) => {
               />
             ))
           ) : (
-            <Heading height="100vh">
-              No hay elementos en la lista {category}
+            <Heading
+              display={"flex"}
+              alignItems={"center"}
+              justifyContent={"center"}
+            >
+              Lista vacía
             </Heading>
           )
         ) : (

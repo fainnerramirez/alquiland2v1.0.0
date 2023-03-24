@@ -11,7 +11,6 @@ import {
   FormControl,
   FormLabel,
   Input,
-  ModalFooter,
   useDisclosure,
   Box,
   MenuItem,
