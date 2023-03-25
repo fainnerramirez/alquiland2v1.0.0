@@ -21,8 +21,6 @@ import {
 import { SingIn } from "./SignIn";
 import { supabase } from "../backend/supabase/client";
 
-import { Link as RouterLink } from "react-router-dom";
-
 export default function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const Links = ["Inicio", "Acerca de", "Contacto"];
@@ -62,7 +60,7 @@ export default function Navbar() {
           <Flex alignItems={"center"}>
             <Box m={5} fontWeight="extrabold" p={2} borderRadius="10px">
               {data.user == null
-                ? "Pon tu producto en Alquilapp "
+                ? "Pon tu anuncio en Alquilapp "
                 : data.user?.user_metadata?.name || data.user.email}
             </Box>
             <Menu>
@@ -86,7 +84,7 @@ export default function Navbar() {
                 <MenuList>
                   <SingIn name="Ingresar" />
                   <MenuItem>
-                    <a href={`/new-product`}>Publicar</a>
+                    <a href={`/new-product`}>Publicar anuncio</a>
                   </MenuItem>
                   <MenuDivider />
                   <MenuItem>Ayuda</MenuItem>
