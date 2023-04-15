@@ -1,17 +1,8 @@
-import React, { useEffect } from "react";
-import Navbar from "./components/Navbar";
+import React from "react";
 import { HomePage } from "./pages/HomePage";
 import { ErrorPage } from "./pages/ErrorPage";
-import {
-  createBrowserRouter,
-  RouterProvider,
-  useNavigate,
-  BrowserRouter as Router,
-} from "react-router-dom";
-import { Footer } from "./components/Footer";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Cards } from "./components/Cards";
-import Welcome from "./components/Welcome";
-import { supabase } from "./backend/supabase/client";
 import UserLogout from "./components/UserLogout";
 import { Layout } from "./components/Layout";
 import { NewProducto } from "./pages/NewProduct";
@@ -60,11 +51,6 @@ const router = createBrowserRouter([
   {
     path: "/carros",
     element: <Cards category="carros" />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: "/welcome",
-    element: <Welcome />,
     errorElement: <ErrorPage />,
   },
   {

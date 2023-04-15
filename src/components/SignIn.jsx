@@ -42,20 +42,6 @@ export const SingIn = ({ name }) => {
     }
   };
 
-  const handleLoginGoogle = async (e) => {
-    e.preventDefault();
-    try {
-      console.log("click en google");
-      const { error } = await supabase.auth.signInWithOAuth({
-        provider: "google",
-      });
-      if (error) throw error;
-    } catch (error) {
-      alert(error.error_description || error.message);
-      console.error(error);
-    }
-  };
-
   return (
     <>
       <MenuItem as="button" onClick={onOpen}>
@@ -71,7 +57,7 @@ export const SingIn = ({ name }) => {
         <ModalOverlay />
         <ModalContent>
           <ModalHeader textAlign={"center"}>
-            ¡Bienvenid@ a alquilapp!
+            ¡Bienvenid@ a UniPensiones!
           </ModalHeader>
           <ModalCloseButton />
           <ModalBody pb={6}>
@@ -90,22 +76,6 @@ export const SingIn = ({ name }) => {
                   Enviar Código
                 </Button>
               </Box>
-              <Divider p="2" />
-              <Text align="center" p="3">
-                ó
-              </Text>
-              <Stack mt="5">
-                <Button
-                  colorScheme="blue"
-                  color="black"
-                  variant="outline"
-                  leftIcon={<FcGoogle />}
-                  onClick={handleLoginGoogle}
-                  disabled={true}
-                >
-                  Continua con Google
-                </Button>
-              </Stack>
             </form>
           </ModalBody>
         </ModalContent>

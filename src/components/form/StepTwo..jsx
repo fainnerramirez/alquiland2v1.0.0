@@ -1,18 +1,5 @@
 import React, { useState } from "react";
-
-import {
-  Heading,
-  FormControl,
-  FormLabel,
-  Input,
-  GridItem,
-  Select,
-  Box,
-  Text,
-  Image,
-  Flex,
-  HStack,
-} from "@chakra-ui/react";
+import { Heading, Input, Image, HStack } from "@chakra-ui/react";
 
 export const StepTwo = () => {
   const [image, setImage] = useState(null);

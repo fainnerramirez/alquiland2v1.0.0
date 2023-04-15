@@ -1,5 +1,4 @@
 ﻿import { useContext } from "react";
-import "@fontsource/pacifico";
 import UserContext from "../context/providers/userContext";
 import {
   Box,
@@ -22,7 +21,7 @@ import { SingIn } from "./SignIn";
 import { supabase } from "../backend/supabase/client";
 
 export default function Navbar() {
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const { isOpen } = useDisclosure();
   const Links = ["Inicio", "Acerca de", "Contacto"];
 
   const { data } = useContext(UserContext);
@@ -53,14 +52,14 @@ export default function Navbar() {
                 color={"#EB455F"}
                 fontWeight={"extrabold"}
               >
-                alquilapp
+                Unipensiones
               </Heading>
             </Box>
           </Box>
           <Flex alignItems={"center"}>
             <Box m={5} fontWeight="extrabold" p={2} borderRadius="10px">
               {data.user == null
-                ? "Pon tu anuncio en Alquilapp "
+                ? "Muestrale a miles de estudiantes tu pensión"
                 : data.user?.user_metadata?.name || data.user.email}
             </Box>
             <Menu>

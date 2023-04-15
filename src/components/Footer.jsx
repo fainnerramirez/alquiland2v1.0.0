@@ -49,9 +49,9 @@ export const Footer = () => {
         align={{ base: "center", md: "center" }}
       >
         <Heading as="h1" size="md" color={"#EB455F"} fontWeight={"extrabold"}>
-          alquilapp
+          Unipensiones
         </Heading>
-        <Text>© 2023 Alquilapp. Todos los derechos reservados</Text>
+        <Text>© 2023 Unipensiones. Todos los derechos reservados</Text>
         <Stack direction={"row"} spacing={6}>
           <SocialButton label={"Twitter"} href={"#"}>
             <FaTwitter />

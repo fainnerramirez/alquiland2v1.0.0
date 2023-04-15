@@ -24,8 +24,10 @@ export const Cards = ({ category }) => {
       {data && data.user != null && (
         <Box p={8} textAlign={"center"}>
           <Heading>
-            Hola {data.user.user_metadata?.name || data.user?.email} ! explora a
-            alquilapp
+            ¡Hola{" "}
+            {data?.user?.user_metadata?.name ||
+              data?.user?.email?.split("@")[0]}{" "}
+            ! explora a UniPensiones
           </Heading>
         </Box>
       )}
