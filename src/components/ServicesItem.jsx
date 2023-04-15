@@ -6,10 +6,9 @@ export const ServiceItem = ({ name, icon, link }) => {
   return (
     <Box
       as="button"
-      minW="8%"
       display="flex"
       alignItems={"center"}
-      justifyContent={"center"}
+      justifyContent={"space-evenly"}
       borderRadius={"md"}
       padding={5}
       _hover={{ bg: "gray.50" }}

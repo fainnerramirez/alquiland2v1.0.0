@@ -16,7 +16,6 @@ import {
   Text,
   Divider,
 } from "@chakra-ui/react";
-
 import { SingIn } from "./SignIn";
 import { supabase } from "../backend/supabase/client";
 

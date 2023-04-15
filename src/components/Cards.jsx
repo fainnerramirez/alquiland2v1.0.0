@@ -1,6 +1,6 @@
 ﻿import React, { useContext } from "react";
 import { CardItem } from "./CardItem";
-import { Box, Stack, Flex, Divider, Heading, Text } from "@chakra-ui/react";
+import { Box, Stack, Flex, Divider, Heading } from "@chakra-ui/react";
 import { Services } from "./Services";
 import cardContext from "../context/providers/CardContext";
 import UserContext from "../context/providers/userContext";
@@ -40,7 +40,7 @@ export const Cards = ({ category }) => {
         paddingLeft={"5%"}
         minH="100vh"
       >
-        {category !== "todas" ? (
+        {category.toLowerCase() !== "todas" ? (
           dataFilter.length > 0 ? (
             dataFilter.map((card) => (
               <CardItem
