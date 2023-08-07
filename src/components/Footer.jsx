@@ -49,7 +49,7 @@ export const Footer = () => {
         justify={{ base: "center", md: "space-between" }}
         align={{ base: "center", md: "center" }}
       >
-        <Heading as="h1" size="md" color={"#EB455F"} fontWeight={"extrabold"}>
+        <Heading as="h1" size="md" color={"#D53F8C"} fontWeight={"extrabold"}>
           Unipensiones
         </Heading>
         <Center>

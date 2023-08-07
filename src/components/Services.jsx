@@ -9,33 +9,34 @@ export const Services = () => {
     {
       id: 0,
       name: "Populares",
-      icon: <GrFavorite size="50px" />,
+      icon: <GrFavorite size="50px" color="#D53F8C" />,
       link: "/",
     },
     {
       id: 1,
-      name: "Pensiones para 1 Persona",
-      icon: <BsFillHouseFill size="50px" />,
+      name: "Una Persona",
+      icon: <BsFillHouseFill size="50px" color="#D53F8C" />,
       link: "/pensiones-para-1-persona",
     },
     {
       id: 2,
-      name: "Pensiones para más de 1 Persona",
-      icon: <BsFillHouseFill size="50px" />,
+      name: "Dos o más Persona",
+      icon: <BsFillHouseFill size="50px" color="#D53F8C"/>,
       link: "/pensiones-para-mas-1-person",
     },
     {
       id: 3,
-      name: "Apartaestudios amoblados",
-      icon: <BsFillHouseFill size="50px" />,
-      link: "/apartaestudios",
+      name: "Apartamentos",
+      icon: <BsFillHouseFill size="50px" color="#D53F8C"/>,
+      link: "/apartamentos",
     },
     {
       id: 4,
-      name: "Apartamentos",
-      icon: <BsFillHouseFill size="50px" />,
-      link: "/apartamentos",
+      name: "Aparta-Estudios",
+      icon: <BsFillHouseFill size="50px" color="#D53F8C"/>,
+      link: "/apartaestudios",
     },
+    
   ];
 
   const [dataService, setDataService] = useState(data);

@@ -9,6 +9,7 @@ import {
   Heading,
   Stack,
   Box,
+  Button
 } from "@chakra-ui/react";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { motion } from "framer-motion";
@@ -61,7 +62,8 @@ export const CardItem = ({
             src={image}
             alt="Green double couch with wooden legs"
             borderTopRadius="lg"
-            minH="320px"
+            maxH={"300px"}
+            maxW={"300px"}
             fallbackSrc="https://via.placeholder.com/420"
           />
           <Divider />
@@ -70,9 +72,9 @@ export const CardItem = ({
             <Text size={"sm"} color="gray.500">
               agregado el {dateAdd}
             </Text>
-            <Text fontWeight={"extrabold"} fontSize="sm">
-              {price}
-            </Text>
+            <Button colorScheme="pink">
+              Detalles
+            </Button>
           </Stack>
         </CardBody>
       </Card>

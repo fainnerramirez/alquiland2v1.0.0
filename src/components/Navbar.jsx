@@ -38,7 +38,7 @@ export default function Navbar() {
               <Heading
                 as="h1"
                 size="md"
-                color={"#EB455F"}
+                color={"#D53F8C"}
                 fontWeight={"extrabold"}
               >
                 Unipensiones
