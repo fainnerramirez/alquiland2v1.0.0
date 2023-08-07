@@ -8,6 +8,7 @@
   VisuallyHidden,
   Heading,
   Divider,
+  Center
 } from "@chakra-ui/react";
 import { FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 
@@ -51,7 +52,9 @@ export const Footer = () => {
         <Heading as="h1" size="md" color={"#EB455F"} fontWeight={"extrabold"}>
           Unipensiones
         </Heading>
-        <Text>© 2023 Unipensiones. Todos los derechos reservados</Text>
+        <Center>
+          <Text>©2023 Unipensiones S.A.S - Todos los derechos reservados</Text>
+        </Center>
         <Stack direction={"row"} spacing={6}>
           <SocialButton label={"Twitter"} href={"#"}>
             <FaTwitter />

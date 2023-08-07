@@ -29,21 +29,11 @@ export default function Navbar() {
     supabase.auth.signOut();
   };
 
-  const image = "https://i.imgur.com/AeUBtNE.gif";
-
   return (
     <>
       <Box px={6} py={3}>
         <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
           <Box display={"flex"}>
-            <Box>
-              <img
-                src={image}
-                alt="logo principal alquilapp"
-                width={"50px"}
-                height={"50px"}
-              />
-            </Box>
             <Box color="white" p={3} borderRadius="10px">
               <Heading
                 as="h1"
@@ -58,7 +48,7 @@ export default function Navbar() {
           <Flex alignItems={"center"}>
             <Box m={5} fontWeight="extrabold" p={2} borderRadius="10px">
               {data.user == null
-                ? "Muestrale a miles de estudiantes tu pensión"
+                ? "Una comunidad de estudiantes que comparten el mismo viaje que tú."
                 : data.user?.user_metadata?.name || data.user.email.split("@")[0]}
             </Box>
             <Menu>
