@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { ServiceItem } from "./ServicesItem";
 import { BsFillHouseFill } from "react-icons/bs";
 import { GrFavorite } from "react-icons/gr";
 import { Box } from "@chakra-ui/react";
 
 export const Services = () => {
-  const dataService = [
+  const data = [
     {
       id: 0,
       name: "Populares",
@@ -37,6 +37,8 @@ export const Services = () => {
       link: "/apartamentos",
     },
   ];
+
+  const [dataService, setDataService] = useState(data);
 
   return (
     <Box display={"flex"} alignItems={"center"} justifyContent={"space-evenly"}>

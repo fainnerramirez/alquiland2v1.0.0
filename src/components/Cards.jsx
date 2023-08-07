@@ -23,11 +23,11 @@ export const Cards = ({ category }) => {
       </Stack>
       {data && data.user != null && (
         <Box p={8} textAlign={"center"}>
-          <Heading>
+          <Heading as='h4' size='md'>
             ¡Hola{" "}
             {data?.user?.user_metadata?.name ||
               data?.user?.email?.split("@")[0]}{" "}
-            ! explora a UniPensiones
+            ! Encuentra tu lugar perfecto para estudiar y vivir.
           </Heading>
         </Box>
       )}

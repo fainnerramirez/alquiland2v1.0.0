@@ -59,7 +59,7 @@ export default function Navbar() {
             <Box m={5} fontWeight="extrabold" p={2} borderRadius="10px">
               {data.user == null
                 ? "Muestrale a miles de estudiantes tu pensión"
-                : data.user?.user_metadata?.name || data.user.email}
+                : data.user?.user_metadata?.name || data.user.email.split("@")[0]}
             </Box>
             <Menu>
               <MenuButton
