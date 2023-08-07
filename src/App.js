@@ -6,10 +6,16 @@ import { Cards } from "./components/Cards";
 import UserLogout from "./components/UserLogout";
 import { Layout } from "./components/Layout";
 import { NewProducto } from "./pages/NewProduct";
+import { Welcome } from "./pages/Welcome";
 
 const router = createBrowserRouter([
   {
     path: "/",
+    element: <Welcome />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/inicio",
     element: <HomePage />,
     errorElement: <ErrorPage />,
   },

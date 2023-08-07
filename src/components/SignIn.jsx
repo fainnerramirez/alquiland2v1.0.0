@@ -16,8 +16,8 @@ import {
   Stack,
   Text,
   Divider,
+  FormHelperText,
 } from "@chakra-ui/react";
-import { FcGoogle } from "react-icons/fc";
 import { supabase } from "../backend/supabase/client";
 
 export const SingIn = ({ name }) => {
@@ -57,23 +57,24 @@ export const SingIn = ({ name }) => {
         <ModalOverlay />
         <ModalContent>
           <ModalHeader textAlign={"center"}>
-            ¡Bienvenid@ a UniPensiones!
+            ¡Bienvenid@  a <Text color={"pink.600"}>UniPensiones!</Text>
           </ModalHeader>
           <ModalCloseButton />
           <ModalBody pb={6}>
             <form onSubmit={handleLinkMagicLogin}>
               <FormControl>
-                <FormLabel>Correo</FormLabel>
+                <FormLabel>Correo electrónico</FormLabel>
                 <Input
                   type="email"
                   ref={initialRef}
                   placeholder="tucorreo@sitio.com"
                   onChange={(e) => setEmail(e.target.value)}
                 />
+                <FormHelperText>Escribe un correo válido para que puedas recibir el link de registro.</FormHelperText>
               </FormControl>
               <Box align="center" mt="4">
                 <Button type="submit" colorScheme="blue" mr={3}>
-                  Enviar Código
+                  Enviar Link
                 </Button>
               </Box>
             </form>
