@@ -15,9 +15,11 @@ import {
   Heading,
   Text,
   Divider,
+  Image
 } from "@chakra-ui/react";
 import { SingIn } from "./SignIn";
 import { supabase } from "../backend/supabase/client";
+import Logo from "./../assets/logo.png";
 
 export default function Navbar() {
   const { isOpen } = useDisclosure();
@@ -38,10 +40,14 @@ export default function Navbar() {
               <Heading
                 as="h1"
                 size="md"
-                color={"#D53F8C"}
+                color={"pink"}
                 fontWeight={"extrabold"}
               >
-                Unipensiones
+                <Image 
+                  src={Logo} 
+                  alt="Logo Unipensiones" 
+                  width={"250px"}
+                />
               </Heading>
             </Box>
           </Box>

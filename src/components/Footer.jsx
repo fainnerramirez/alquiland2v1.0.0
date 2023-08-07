@@ -8,9 +8,11 @@
   VisuallyHidden,
   Heading,
   Divider,
-  Center
+  Center,
+  Image
 } from "@chakra-ui/react";
 import { FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
+import Logo from "./../assets/logo.png"
 
 const SocialButton = ({ children, label, href }) => {
   return (
@@ -49,15 +51,19 @@ export const Footer = () => {
         justify={{ base: "center", md: "space-between" }}
         align={{ base: "center", md: "center" }}
       >
-        <Heading as="h1" size="md" color={"#D53F8C"} fontWeight={"extrabold"}>
-          Unipensiones
+        <Heading as="h1" size="md" color={"pink.600"} fontWeight={"extrabold"}>
+          <Image 
+            src={Logo} 
+            alt="Logo unipensiones"
+            width={"200px"} 
+          />
         </Heading>
-        <Center>
-          <Text>©2023 Unipensiones S.A.S - Todos los derechos reservados</Text>
-        </Center>
-        <Stack direction={"row"} spacing={6}>
+        <Text textAlign={"center"}>
+          ©2023 Unipensiones S.A.S - Todos los derechos reservados
+        </Text>
+        <Stack direction={"row"} spacing={6} color={"pink.600"}>
           <SocialButton label={"Twitter"} href={"#"}>
-            <FaTwitter />
+            <FaTwitter/>
           </SocialButton>
           <SocialButton label={"YouTube"} href={"#"}>
             <FaYoutube />
