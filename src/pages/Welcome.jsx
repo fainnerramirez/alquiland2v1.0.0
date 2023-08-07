@@ -21,12 +21,18 @@ export const Welcome = () => {
     ]);
 
     return (
-        <>
+        <Box mb="100px">
             <Box mt="10px">
-                <Heading textAlign={"center"} color={"pink.600"} fontSize={"50px"}>Unipensiones</Heading>
-                <Heading textAlign={"center"} fontSize={"30px"}>¿Cuál es tu Rol?</Heading>
+                <Heading textAlign={"center"} color={"pink.600"} fontSize={{base:"1.7rem", md: "2rem", lg: "3rem"}}>Unipensiones</Heading>
+                <Heading  mt="10px" textAlign={"center"} fontSize={{base: "1rem", md: "1.5rem", lg: "1.8rem"}}>¿Cuál es tu Rol?</Heading>
             </Box>
-            <Box display={'flex'} alignItems={'center'} justifyContent={'center'} mt="3%" mb={"70px"}>
+            <Box 
+                mt="10px" 
+                display={'flex'} 
+                alignItems={'center'} 
+                justifyContent={'center'} 
+                flexWrap={"wrap"} 
+                >
                 {
                     roles.map(role => {
                         return <CardsRoles
@@ -37,6 +43,6 @@ export const Welcome = () => {
                     })
                 }
             </Box>
-        </>
+        </Box>
     );
 }

@@ -46,7 +46,7 @@ export default function Navbar() {
             </Box>
           </Box>
           <Flex alignItems={"center"}>
-            <Box m={5} fontWeight="extrabold" p={2} borderRadius="10px">
+            <Box m={5} fontWeight="extrabold" p={2} borderRadius="10px" display={{base: "none", md: "none", lg: "block"}}>
               {data.user == null
                 ? "Una comunidad de estudiantes que comparten el mismo viaje que tú."
                 : data.user?.user_metadata?.name || data.user.email.split("@")[0]}

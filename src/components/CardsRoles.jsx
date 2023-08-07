@@ -4,7 +4,7 @@ import { AiOutlineArrowRight } from 'react-icons/ai'
 
 export const CardsRoles = ({role, image, }) => {
   return (
-    <Card maxW='sm' ml={"40px"}>
+    <Card maxW='sm' m="10px">
       <CardBody>
         <Image
           src={image}          
