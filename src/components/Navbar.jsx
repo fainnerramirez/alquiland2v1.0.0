@@ -71,7 +71,7 @@ export default function Navbar() {
                     src={data?.user?.user_metadata?.avatar_url}
                   />
                 ) : (
-                  <Avatar size={{ base: "sm", sm: "sm", md: "md", lg: "lg" }} />
+                  <Avatar size={{ base: "sm", sm: "sm", md: "md", lg: "md" }} />
                 )}
               </MenuButton>
               {data?.user == null ? (
