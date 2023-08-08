@@ -8,7 +8,7 @@ export const CardsRoles = ({role, image, }) => {
       <CardBody>
         <Image
           src={image}          
-          alt='Rol de estudiantes'
+          alt={role}
           borderRadius='lg'
         />
       </CardBody>

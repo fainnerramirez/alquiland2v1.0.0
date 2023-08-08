@@ -1,5 +1,5 @@
 import React from "react";
-import { HomePage } from "./pages/HomePage";
+import { Estudiantes } from "./pages/Students";
 import { ErrorPage } from "./pages/ErrorPage";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Cards } from "./components/Cards";
@@ -15,8 +15,8 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
-    path: "/inicio",
-    element: <HomePage />,
+    path: "/estudiantes",
+    element: <Estudiantes />,
     errorElement: <ErrorPage />,
   },
   {

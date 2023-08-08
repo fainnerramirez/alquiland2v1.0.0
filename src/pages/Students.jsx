@@ -3,7 +3,7 @@ import { CardsContainer } from "../components/CardContainer";
 import { supabase } from "../backend/supabase/client";
 import { useNavigate } from "react-router-dom";
 
-export const HomePage = () => {
+export const Estudiantes = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
