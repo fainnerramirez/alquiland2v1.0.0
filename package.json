@@ -10,6 +10,7 @@
     "@fontsource/lato": "^4.5.10",
     "@fontsource/montserrat": "^4.5.13",
     "@fontsource/pacifico": "^4.5.9",
+    "@formkit/auto-animate": "^0.7.0",
     "@supabase/auth-ui-react": "^0.2.6",
     "@supabase/supabase-js": "^2.2.2",
     "@testing-library/jest-dom": "^5.16.5",

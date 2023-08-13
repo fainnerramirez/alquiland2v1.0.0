@@ -66,12 +66,18 @@ export default function Navbar() {
                 minW={0}
               >
                 {data ? (
+                  <div>
                   <Avatar
                     size={{ base: "sm", sm: "sm", md: "md", lg: "md" }}
                     src={data?.user?.user_metadata?.avatar_url}
+                    hidden
                   />
+                  </div>
                 ) : (
-                  <Avatar size={{ base: "sm", sm: "sm", md: "md", lg: "md" }} />
+                  <Avatar 
+                    size={{ base: "sm", sm: "sm", md: "md", lg: "md" }}
+                    src={data?.user?.user_metadata?.avatar_url}
+                  />
                 )}
               </MenuButton>
               {data?.user == null ? (

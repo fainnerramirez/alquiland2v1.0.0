@@ -57,7 +57,7 @@ export const SingIn = ({ name }) => {
         <ModalOverlay />
         <ModalContent>
           <ModalHeader textAlign={"center"}>
-            ¡Bienvenid@  a <Text color={"pink.600"}>UniPensiones!</Text>
+            ¡Bienvenid@  a <Text color={"pink.500"}>UniPensiones!</Text>
           </ModalHeader>
           <ModalCloseButton />
           <ModalBody pb={6}>

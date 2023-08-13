@@ -5,18 +5,25 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Cards } from "./components/Cards";
 import UserLogout from "./components/UserLogout";
 import { Layout } from "./components/Layout";
-import { NewProducto } from "./pages/NewProduct";
 import { Welcome } from "./pages/Welcome";
+import { NewProducto } from "./pages/NewProduct";
+import { Owner } from "./pages/Owner";
+import { PATHS } from "./utils/PathsRouter";
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: PATHS.WELCOME,
     element: <Welcome />,
     errorElement: <ErrorPage />,
   },
   {
-    path: "/estudiantes",
+    path: PATHS.ROLE.STUDENTS,
     element: <Estudiantes />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: PATHS.ROLE.OWNER,
+    element: <Owner />,
     errorElement: <ErrorPage />,
   },
   {

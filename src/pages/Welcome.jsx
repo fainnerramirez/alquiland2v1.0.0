@@ -11,20 +11,24 @@ export const Welcome = () => {
         {
             id: 1,
             role: "Estudiante",
-            image: ImageStudents
+            image: ImageStudents,
+            link: "/estudiantes"
         },
         {
             id: 2,
             role: "Propietario",
-            image: ImageOwner
+            image: ImageOwner,
+            link: "/propietario"
         }
     ]);
 
     return (
-        <Box mb="60px">
+        <Box mb="80px">
             <Box mt="10px">
-                <Heading textAlign={"center"} color={"pink.600"} fontSize={{ base: "1.7rem", md: "2rem", lg: "3rem" }}>Unipensiones</Heading>
-                <Heading mt="10px" textAlign={"center"} fontSize={{ base: "1rem", md: "1.5rem", lg: "1.8rem" }}>¿Cuál es tu Rol?</Heading>
+                <Heading 
+                    textAlign={"center"} 
+                    color={"pink.500"} 
+                    fontSize={{ base: "1.7rem", md: "2rem", lg: "3rem" }}>Unipensiones</Heading>
             </Box>
             <Box mt="10px" display={"flex"} flexDir={{ base: "column", lg: "row" }} alignItems={"center"} justifyContent={"center"} width={"100%"}>
                 <Box width={{ base: "100%", lg: "40%" }} >
@@ -62,6 +66,7 @@ export const Welcome = () => {
                                 key={role.id}
                                 role={role.role}
                                 image={role.image}
+                                link={role.link}
                             />
                         })
                     }
