@@ -17,13 +17,39 @@ import {
   ModalHeader,
   ModalCloseButton,
   ModalBody,
-  ModalFooter
+  ModalFooter,
+  FormControl,
+  FormLabel,
+  Input,
+  FormHelperText,
+  Box
 } from "@chakra-ui/react"
 import { AiOutlineArrowRight } from 'react-icons/ai'
+import { supabase } from "../backend/supabase/client";
 
 const StudentsButtonModal = ({role}) => {
 
   const { isOpen, onOpen, onClose } = useDisclosure()
+
+  const initialRef = React.useRef(null);
+  const finalRef = React.useRef(null);
+
+  const [email, setEmail] = React.useState("");
+
+  const handleLinkMagicLogin = async (e) => {
+    e.preventDefault();
+    try {
+      console.log(email);
+      const { error } = await supabase.auth.signInWithOtp({
+        email,
+      });
+      if (error) throw error;
+      alert("Logged in successfully!");
+    } catch (error) {
+      alert(error.error_description || error.message);
+      console.error(error);
+    }
+  };
 
   return (
     <>
@@ -33,26 +59,45 @@ const StudentsButtonModal = ({role}) => {
          size={'md'}  
          width={"full"} 
          rightIcon={<AiOutlineArrowRight />}
-        onClick={onOpen}
+         onClick={onOpen}
       >
         Soy  {role}
       </Button>
-      <Modal isOpen={isOpen} onClose={onClose}>
+      <Modal
+        initialFocusRef={initialRef}
+        finalFocusRef={finalRef}
+        isOpen={isOpen}
+        onClose={onClose}
+        motionPreset="slideInBottom"
+      >
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Modal Title</ModalHeader>
+          <ModalHeader textAlign={"center"}>
+            ¡Bienvenid@  a <Text color={"pink.500"}>UniPensiones!</Text>
+          </ModalHeader>
           <ModalCloseButton />
-          <ModalBody>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam, laudantium!
+          <ModalBody pb={6}>
+            <form onSubmit={handleLinkMagicLogin}>
+              <FormControl>
+                <FormLabel>Correo electrónico</FormLabel>
+                <Input
+                  type="email"
+                  ref={initialRef}
+                  placeholder="tucorreo@sitio.com"
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+                <FormHelperText>Escribe un correo válido para que puedas recibir el link de registro.</FormHelperText>
+              </FormControl>
+              <Box align="center" mt="4">
+                <Button type="submit" colorScheme="pink" mr={3}>
+                  Enviar Link
+                </Button>
+              </Box>
+            </form>
           </ModalBody>
-          <ModalFooter>
-            <Button colorScheme='blue' mr={3} onClick={onClose}>
-              Close
-            </Button>
-            <Button variant='ghost'>Secondary Action</Button>
-          </ModalFooter>
         </ModalContent>
       </Modal>
+
     </>
   )
 }
