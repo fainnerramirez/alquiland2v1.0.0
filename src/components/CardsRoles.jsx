@@ -20,7 +20,6 @@ import {
   ModalFooter
 } from "@chakra-ui/react"
 import { AiOutlineArrowRight } from 'react-icons/ai'
-import {Link as LinkRouter} from "react-router-dom";
 
 const StudentsButtonModal = ({role}) => {
 
