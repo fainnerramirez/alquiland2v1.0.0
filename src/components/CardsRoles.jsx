@@ -97,7 +97,6 @@ const StudentsButtonModal = ({role}) => {
           </ModalBody>
         </ModalContent>
       </Modal>
-
     </>
   )
 }
