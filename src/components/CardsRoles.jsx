@@ -27,6 +27,7 @@ import {
 import { AiOutlineArrowRight } from 'react-icons/ai'
 import { supabase } from "../backend/supabase/client";
 import { Toast } from '../utils/Toast';
+import { ToastContainer } from 'react-toastify';
 
 const StudentsButtonModal = ({role}) => {
 
@@ -36,6 +37,7 @@ const StudentsButtonModal = ({role}) => {
   const finalRef = React.useRef(null);
 
   const [email, setEmail] = React.useState("");
+  const [linkSendState, setLinkSendState] = React.useState(false)
 
   const handleLinkMagicLogin = async (e) => {
     
@@ -43,6 +45,7 @@ const StudentsButtonModal = ({role}) => {
 
     try {
 
+      setLinkSendState(true);
       const { error } = await supabase.auth.signInWithOtp({
         email,
         options: {
@@ -51,9 +54,11 @@ const StudentsButtonModal = ({role}) => {
       });
 
       if (error) throw error;
-
+      setLinkSendState(false);
       Toast("success", "Link enviado correctamente!");
     } catch (error) {
+      setLinkSendState(false);
+      console.log(error.error_description || error.message)
       Toast("error", error.error_description || error.message);
     }
   };
@@ -96,9 +101,15 @@ const StudentsButtonModal = ({role}) => {
                 <FormHelperText>Escribe un correo válido para que puedas recibir el link de registro.</FormHelperText>
               </FormControl>
               <Box align="center" mt="4">
-                <Button type="submit" colorScheme="pink" mr={3}>
+                <Button
+                  isLoading={linkSendState}
+                  loadingText='Enviando link'
+                  type="submit" 
+                  colorScheme="pink" 
+                  mr={3}>
                   Enviar Link
                 </Button>
+                <ToastContainer autoClose={false} />
               </Box>
             </form>
           </ModalBody>
