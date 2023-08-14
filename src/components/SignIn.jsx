@@ -19,8 +19,11 @@ import {
   FormHelperText,
 } from "@chakra-ui/react";
 import { supabase } from "../backend/supabase/client";
+import { Toast } from "../utils/Toast";
+import { ToastContainer } from "react-toastify"
 
 export const SingIn = ({ name }) => {
+
   const { isOpen, onOpen, onClose } = useDisclosure();
   const initialRef = React.useRef(null);
   const finalRef = React.useRef(null);
@@ -33,12 +36,14 @@ export const SingIn = ({ name }) => {
       console.log(email);
       const { error } = await supabase.auth.signInWithOtp({
         email,
+        options: {
+          emailRedirectTo: "http://localhost:3000/estudiantes"
+        }
       });
       if (error) throw error;
-      alert("Logged in successfully!");
+      Toast("success", "Link enviado correctamente!. Revisa tu correo");
     } catch (error) {
-      alert(error.error_description || error.message);
-      console.error(error);
+      Toast("error", error.error_description || error.message);
     }
   };
 
@@ -76,6 +81,7 @@ export const SingIn = ({ name }) => {
                 <Button type="submit" colorScheme="blue" mr={3}>
                   Enviar Link
                 </Button>
+                <ToastContainer autoClose={false} />
               </Box>
             </form>
           </ModalBody>

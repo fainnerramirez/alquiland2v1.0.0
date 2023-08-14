@@ -1,4 +1,4 @@
-﻿import { useContext } from "react";
+﻿import { useContext, useEffect } from "react";
 import UserContext from "../context/providers/userContext";
 import {
   Box,
@@ -22,13 +22,20 @@ import { supabase } from "../backend/supabase/client";
 import Logo from "./../assets/logo.png";
 
 export default function Navbar() {
+
   const { isOpen } = useDisclosure();
   const Links = ["Inicio", "Acerca de", "Contacto"];
 
   const { data } = useContext(UserContext);
 
-  const handleLogout = () => {
-    supabase.auth.signOut();
+  const handleLogout = async () => {    
+    const {error} = await supabase.auth.signOut();
+
+    if(error){
+      console.error(error); 
+      return;
+    }
+    return window.location.href = "/";
   };
 
   return (
@@ -70,7 +77,6 @@ export default function Navbar() {
                   <Avatar
                     size={{ base: "sm", sm: "sm", md: "md", lg: "md" }}
                     src={data?.user?.user_metadata?.avatar_url}
-                    hidden
                   />
                   </div>
                 ) : (
@@ -96,7 +102,7 @@ export default function Navbar() {
                   </MenuItem>
                   <MenuDivider />
                   <MenuItem>
-                    <Button colorScheme={"blue"} onClick={handleLogout}>
+                    <Button colorScheme={"blue"} onClick={(e) => handleLogout(e)}>
                       Salir
                     </Button>
                   </MenuItem>

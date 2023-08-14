@@ -9,6 +9,7 @@ import { Welcome } from "./pages/Welcome";
 import { NewProducto } from "./pages/NewProduct";
 import { Owner } from "./pages/Owner";
 import { PATHS } from "./utils/PathsRouter";
+import 'react-toastify/dist/ReactToastify.css';
 
 const router = createBrowserRouter([
   {

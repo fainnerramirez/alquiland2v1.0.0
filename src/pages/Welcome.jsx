@@ -25,16 +25,26 @@ export const Welcome = () => {
     return (
         <Box mb="80px">
             <Box mt="10px">
-                <Heading 
-                    textAlign={"center"} 
-                    color={"pink.500"} 
-                    fontSize={{ base: "1.7rem", md: "2rem", lg: "3rem" }}>Unipensiones</Heading>
+                <Heading
+                    textAlign={"center"}
+                    color={"pink.500"}
+                    fontSize={{ base: "1.7rem", md: "2rem", lg: "3rem" }}
+                >
+                    Unipensiones
+                </Heading>
             </Box>
             <Box mt="10px" display={"flex"} flexDir={{ base: "column", lg: "row" }} alignItems={"center"} justifyContent={"center"} width={"100%"}>
                 <Box width={{ base: "100%", lg: "40%" }} >
                     <Text textAlign={"left"} m="30px" noOfLines={{ base: 4, md: 6, lg: 40 }}>
                         <Box mb={"10px"}>
-                            ¡Bienvenidos a <Text as="b">Unipensiones!</Text> Somos una plataforma única de alquiler de pensiones estudiantiles diseñada por estudiantes para estudiantes. Entendemos las necesidades y preocupaciones que enfrentas al buscar alojamiento durante tus años académicos, y hemos creado Unipensiones para hacer que ese proceso sea más fácil y cómodo que nunca.
+                            ¡Bienvenidos a <Text as="b">Unipensiones!</Text> Somos una plataforma única de
+                            alquiler de pensiones estudiantiles diseñada por estudiantes para estudiantes.
+                            Entendemos las necesidades y preocupaciones que enfrentas al buscar alojamiento
+                            durante tus años académicos, y hemos creado Unipensiones para hacer que ese
+                            proceso sea más fácil y cómodo que nunca.
+                        </Box>
+
+                        <Box mb={"10px"}>
                             Nuestra misión es brindarte opciones de alojamiento estudiantil que se adapten a
                             tus preferencias y presupuesto. En Unipensiones, te conectamos directamente con
                             propietarios de pensiones verificados que ofrecen habitaciones y apartamentos
