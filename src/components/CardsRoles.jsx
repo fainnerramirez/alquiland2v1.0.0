@@ -26,6 +26,7 @@ import {
 } from "@chakra-ui/react"
 import { AiOutlineArrowRight } from 'react-icons/ai'
 import { supabase } from "../backend/supabase/client";
+import { Toast } from '../utils/Toast';
 
 const StudentsButtonModal = ({role}) => {
 
@@ -37,17 +38,23 @@ const StudentsButtonModal = ({role}) => {
   const [email, setEmail] = React.useState("");
 
   const handleLinkMagicLogin = async (e) => {
+    
     e.preventDefault();
+
     try {
-      console.log(email);
+
       const { error } = await supabase.auth.signInWithOtp({
         email,
+        options: {
+          emailRedirectTo: "http://localhost:3000/estudiantes"
+        }
       });
+
       if (error) throw error;
-      alert("Logged in successfully!");
+
+      Toast("success", "Link enviado correctamente!");
     } catch (error) {
-      alert(error.error_description || error.message);
-      console.error(error);
+      Toast("error", error.error_description || error.message);
     }
   };
 
