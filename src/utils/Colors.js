@@ -1,5 +1,5 @@
-export const colors = {
-  azulOscuro: "#2B3467",
-  rosadoOscuro: "#EB455F",
-  blanco: "#FCFFE7",
+export const COLORS = {
+  AZUL_OSCURO: "#2B3467",
+  ROSASO_OSCURO: "#EB455F",
+  BLANCO: "#FCFFE7",
 };

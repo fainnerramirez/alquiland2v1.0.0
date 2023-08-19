@@ -15,32 +15,33 @@ import {
   Heading,
   Text,
   Divider,
-  Image
+  Image,
+  color
 } from "@chakra-ui/react";
 import { SingIn } from "./SignIn";
 import { supabase } from "../backend/supabase/client";
 import Logo from "./../assets/logo.png";
+import { COLORS } from "../utils/Colors";
 
 export default function Navbar() {
-
-  const { isOpen } = useDisclosure();
   const Links = ["Inicio", "Acerca de", "Contacto"];
-
+  const { isOpen } = useDisclosure();
   const { data } = useContext(UserContext);
 
-  const handleLogout = async () => {    
-    const {error} = await supabase.auth.signOut();
+  const handleLogout = async () => {
+    const { error } = await supabase.auth.signOut();
 
-    if(error){
-      console.error(error); 
+    if (error) {
+      console.error(error);
       return;
     }
+
     return window.location.href = "/";
   };
 
   return (
     <>
-      <Box px={6} py={3}>
+      <Box px={6} py={3} backgroundColor={COLORS.AZUL_OSCURO}>
         <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
           <Box display={"flex"}>
             <Box color="white" p={3} borderRadius="10px">
@@ -50,16 +51,20 @@ export default function Navbar() {
                 color={"pink"}
                 fontWeight={"extrabold"}
               >
-                <Image 
-                  src={Logo} 
-                  alt="Logo Unipensiones" 
-                  width={"250px"}
-                />
+                <a href="/">
+                <Button style={{backgroundColor: "transparent"}}>
+                  <Image
+                    src={Logo}
+                    alt="Logo Unipensiones"
+                    width={"250px"}
+                  />
+                </Button>
+                </a>
               </Heading>
             </Box>
           </Box>
           <Flex alignItems={"center"}>
-            <Box m={5} fontWeight="extrabold" p={2} borderRadius="10px" display={{base: "none", md: "none", lg: "block"}}>
+            <Box m={5} fontWeight="extrabold" p={2} borderRadius="10px" display={{ base: "none", md: "none", lg: "block" }}>
               {data.user == null
                 ? "Una comunidad de estudiantes que comparten el mismo viaje que tú."
                 : data.user?.user_metadata?.name || data.user.email.split("@")[0]}
@@ -74,13 +79,13 @@ export default function Navbar() {
               >
                 {data ? (
                   <div>
-                  <Avatar
-                    size={{ base: "sm", sm: "sm", md: "md", lg: "md" }}
-                    src={data?.user?.user_metadata?.avatar_url}
-                  />
+                    <Avatar
+                      size={{ base: "sm", sm: "sm", md: "md", lg: "md" }}
+                      src={data?.user?.user_metadata?.avatar_url}
+                    />
                   </div>
                 ) : (
-                  <Avatar 
+                  <Avatar
                     size={{ base: "sm", sm: "sm", md: "md", lg: "md" }}
                     src={data?.user?.user_metadata?.avatar_url}
                   />
