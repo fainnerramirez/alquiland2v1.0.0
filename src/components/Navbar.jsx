@@ -41,7 +41,7 @@ export default function Navbar() {
 
   return (
     <>
-      <Box px={6} py={3} backgroundColor={COLORS.AZUL_OSCURO}>
+      <Box px={6} py={3}>
         <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
           <Box display={"flex"}>
             <Box color="white" p={3} borderRadius="10px">
