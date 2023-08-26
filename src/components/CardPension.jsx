@@ -23,7 +23,7 @@ export const CardPension = ({
   user,
   category,
 }) => {
-
+  const image = "https://i.pinimg.com/236x/9f/aa/42/9faa4266f1a6eb1790622d745cec62ba.jpg";
   const [selectHeart, SetSelectHeart] = useState(false);
 
   const handleClickHeart = (e) => {
@@ -59,11 +59,11 @@ export const CardPension = ({
             {category}
           </Badge>
           <Image
-            src={ImagePension}
+            src={image}
             alt="Green double couch with wooden legs"
             borderTopRadius="lg"
-            maxH={"300px"}
-            maxW={"300px"}
+            height={"300px"}
+            width={"280px"}
             fallbackSrc="https://via.placeholder.com/420"
             borderRadius={'lg'}
           />
