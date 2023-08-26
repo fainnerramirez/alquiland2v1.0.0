@@ -15,7 +15,7 @@ import React, { useState } from "react";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import ImagePension from "../assets/pension.png";
 
-export const CardItem = ({
+export const CardPension = ({
   images,
   location,
   dateAdd,

@@ -1,7 +1,7 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import 'react-toastify/dist/ReactToastify.css';
-import { Cards } from "./components/Cards";
+import { ContainerCardsPension } from "./components/ContainerCardsPension";
 import { Layout } from "./components/Layout";
 import { ErrorPage } from "./pages/ErrorPage";
 import { Estudiantes } from "./pages/Students";
@@ -15,7 +15,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/example",
-    element: <Cards category="casas" />,
+    element: <ContainerCardsPension category="casas" />,
     errorElement: <ErrorPage />,
   },
 ]);

@@ -1,11 +1,11 @@
 ﻿import React, { useContext } from "react";
-import { CardItem } from "./CardItem";
+import { CardPension } from "./CardPension";
 import { Box, Stack, Flex, Divider, Heading } from "@chakra-ui/react";
 import { Services } from "./Services";
 import cardContext from "../context/providers/CardContext";
 import UserContext from "../context/providers/userContext";
 
-export const Cards = ({ category }) => {
+export const ContainerCardsPension = ({ category }) => {
   const dataCard = useContext(cardContext);
   const { data } = useContext(UserContext);
 
@@ -43,7 +43,7 @@ export const Cards = ({ category }) => {
         {category.toLowerCase() !== "todas" ? (
           dataFilter.length > 0 ? (
             dataFilter.map((card) => (
-              <CardItem
+              <CardPension
                 key={card.id}
                 images={card.images}
                 location={card.location}
@@ -64,7 +64,7 @@ export const Cards = ({ category }) => {
           )
         ) : (
           dataCard.map((card) => (
-            <CardItem
+            <CardPension
               key={card.id}
               images={card.images}
               location={card.location}
