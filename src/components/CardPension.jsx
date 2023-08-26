@@ -1,10 +1,8 @@
 ﻿import {
   Badge,
   Box,
-  Button,
   Card,
   CardBody,
-  Divider,
   Heading,
   Image,
   Stack,
@@ -13,7 +11,6 @@
 import { motion } from "framer-motion";
 import React, { useState } from "react";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
-import ImagePension from "../assets/pension.png";
 
 export const CardPension = ({
   images,
@@ -55,7 +52,7 @@ export const CardPension = ({
               <AiOutlineHeart size="35px" color="white"/>
             )}
           </Box>
-          <Badge colorScheme="green" position="absolute" top="6" right="7">
+          <Badge colorScheme="green" position="absolute" top="6" right="7"> 
             {category}
           </Badge>
           <Image
