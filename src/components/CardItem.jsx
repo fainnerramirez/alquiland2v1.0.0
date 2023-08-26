@@ -1,18 +1,19 @@
-﻿import React, { useState } from "react";
-import {
+﻿import {
+  Badge,
+  Box,
+  Button,
   Card,
   CardBody,
-  Image,
-  Badge,
   Divider,
-  Text,
   Heading,
+  Image,
   Stack,
-  Box,
-  Button
+  Text
 } from "@chakra-ui/react";
-import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { motion } from "framer-motion";
+import React, { useState } from "react";
+import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
+import ImagePension from "../assets/pension.png";
 
 export const CardItem = ({
   images,
@@ -22,8 +23,7 @@ export const CardItem = ({
   user,
   category,
 }) => {
-  const image =
-    "https://a0.muscache.com/im/pictures/miso/Hosting-22319550/original/cc1fd71d-1a91-4026-99f8-c2cbffefd68f.jpeg?im_w=720";
+
   const [selectHeart, SetSelectHeart] = useState(false);
 
   const handleClickHeart = (e) => {
@@ -40,8 +40,8 @@ export const CardItem = ({
         ease: [0, 0.71, 0.2, 1.01],
       }}
     >
-      <Card maxW="330px" marginBottom="15px">
-        <CardBody padding="0">
+      <Card border={'none'} boxShadow={'none'}>
+        <CardBody padding="10px">
           <Box
             as="button"
             position="absolute"
@@ -52,29 +52,26 @@ export const CardItem = ({
             {selectHeart ? (
               <AiFillHeart size="35px" color="red" />
             ) : (
-              <AiOutlineHeart size="35px" color="white" />
+              <AiOutlineHeart size="35px" color="white"/>
             )}
           </Box>
           <Badge colorScheme="green" position="absolute" top="6" right="7">
             {category}
           </Badge>
           <Image
-            src={image}
+            src={ImagePension}
             alt="Green double couch with wooden legs"
             borderTopRadius="lg"
             maxH={"300px"}
             maxW={"300px"}
             fallbackSrc="https://via.placeholder.com/420"
+            borderRadius={'lg'}
           />
-          <Divider />
           <Stack mt="1" spacing="3" p="2">
             <Heading size="sm">{location}</Heading>
             <Text size={"sm"} color="gray.500">
               agregado el {dateAdd}
             </Text>
-            <Button colorScheme="pink">
-              Detalles
-            </Button>
           </Stack>
         </CardBody>
       </Card>

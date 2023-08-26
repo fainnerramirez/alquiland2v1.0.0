@@ -1,33 +1,29 @@
-import React from 'react'
-import { 
-  Card, 
-  Stack, 
-  CardBody, 
-  Heading, 
-  Text, 
-  Image, 
-  Divider, 
-  CardFooter, 
-  Button, 
-  ButtonGroup, 
-  useDisclosure,
+import {
+  Box,
+  Button,
+  Card,
+  CardBody,
+  CardFooter,
+  Divider,
+  FormControl,
+  FormHelperText,
+  FormLabel,
+  Image,
+  Input,
   Modal,
-  ModalOverlay,
+  ModalBody,
+  ModalCloseButton,
   ModalContent,
   ModalHeader,
-  ModalCloseButton,
-  ModalBody,
-  ModalFooter,
-  FormControl,
-  FormLabel,
-  Input,
-  FormHelperText,
-  Box
-} from "@chakra-ui/react"
-import { AiOutlineArrowRight } from 'react-icons/ai'
+  ModalOverlay,
+  Text,
+  useDisclosure
+} from "@chakra-ui/react";
+import React from 'react';
+import { AiOutlineArrowRight } from 'react-icons/ai';
+import { ToastContainer } from 'react-toastify';
 import { supabase } from "../backend/supabase/client";
 import { Toast } from '../utils/Toast';
-import { ToastContainer } from 'react-toastify';
 
 const StudentsButtonModal = ({role}) => {
 

@@ -6,12 +6,15 @@ export const CardProvider = ({ children }) => {
   const image =
     "https://pixabay.com/es/photos/casa-piscina-dise%c3%b1o-de-interiores-1477041/";
 
+  moment().locale('es');
+  let dateUpdate = moment().format("D/MMM/yyyy");
+
   const data = [
     {
       id: 1,
       images: image,
-      location: "Santa Marta, Colombia",
-      date: moment().format("d/MM/YYYY"),
+      location: "Bogotá DC, Colombia",
+      date: dateUpdate,
       price: "457.000 COP/mes",
       user: "Fainner Ramirez",
       category: "Casas",
@@ -19,8 +22,8 @@ export const CardProvider = ({ children }) => {
     {
       id: 2,
       images: image,
-      location: "Santa Marta, Colombia",
-      date: moment().format("d/MM/YYYY"),
+      location: "Bogotá DC, Colombia",
+      date: dateUpdate,
       price: "457.000 COP/mes",
       user: "Fainner Ramirez",
       category: "Casas",
@@ -28,8 +31,8 @@ export const CardProvider = ({ children }) => {
     {
       id: 3,
       images: image,
-      location: "Santa Marta, Colombia",
-      date: moment().format("d/MM/YYYY"),
+      location: "Bogotá DC, Colombia",
+      date: dateUpdate,
       price: "457.000 COP/mes",
       user: "Fainner Ramirez",
       category: "Fincas",
@@ -37,8 +40,8 @@ export const CardProvider = ({ children }) => {
     {
       id: 4,
       images: image,
-      location: "Santa Marta, Colombia",
-      date: moment().format("d/MM/YYYY"),
+      location: "Bogotá DC, Colombia",
+      date: dateUpdate,
       price: "457.000 COP/mes",
       user: "Fainner Ramirez",
       category: "Fincas",
@@ -46,8 +49,8 @@ export const CardProvider = ({ children }) => {
     {
       id: 5,
       images: image,
-      location: "Santa Marta, Colombia",
-      date: moment().format("d/MM/YYYY"),
+      location: "Bogotá DC, Colombia",
+      date: dateUpdate,
       price: "450.000 COP/mes",
       user: "Fainner Ramirez",
       category: "Piscinas",
@@ -55,8 +58,8 @@ export const CardProvider = ({ children }) => {
     {
       id: 6,
       images: image,
-      location: "Santa Marta, Colombia",
-      date: moment().format("d/MM/YYYY"),
+      location: "Bogotá DC, Colombia",
+      date: dateUpdate,
       price: "457.000 COP/mes",
       user: "Fainner Ramirez",
       category: "Piscinas",
@@ -64,8 +67,8 @@ export const CardProvider = ({ children }) => {
     {
       id: 7,
       images: image,
-      location: "Santa Marta, Colombia",
-      date: moment().format("d/MM/YYYY"),
+      location: "Bogotá DC, Colombia",
+      date: dateUpdate,
       price: "457.000 COP/mes",
       user: "Fainner Ramirez",
       category: "Piscinas",
@@ -73,8 +76,8 @@ export const CardProvider = ({ children }) => {
     {
       id: 8,
       images: image,
-      location: "Santa Marta, Colombia",
-      date: moment().format("d/MM/YYYY"),
+      location: "Bogotá DC, Colombia",
+      date: dateUpdate,
       price: "457.000 COP/mes",
       user: "Fainner Ramirez",
       category: "Casas",
