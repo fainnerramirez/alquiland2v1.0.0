@@ -64,9 +64,9 @@ export const CardPension = ({
             fallbackSrc="https://via.placeholder.com/420"
             borderRadius={'lg'}
           />
-          <Stack mt="1" spacing="3" p="2">
-            <Heading size="sm">{location}</Heading>
-            <Text size={"sm"} color="gray.500">
+          <Stack mt="1" spacing="1" p="2">
+            <Text as="b">{location}</Text>
+            <Text color="gray.500">
               agregado el {dateAdd}
             </Text>
           </Stack>
