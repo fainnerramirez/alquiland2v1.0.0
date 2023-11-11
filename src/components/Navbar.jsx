@@ -47,19 +47,11 @@ export default function Navbar() {
             <Box color="white" p={3} borderRadius="10px">
               <Heading
                 as="h1"
-                size="md"
-                color={"pink"}
+                size="lg"
+                color={"black"}
                 fontWeight={"extrabold"}
               >
-                <a href="/">
-                <Button style={{backgroundColor: "transparent"}}>
-                  <Image
-                    src={Logo}
-                    alt="Logo Unipensiones"
-                    width={"250px"}
-                  />
-                </Button>
-                </a>
+                Unipensiones
               </Heading>
             </Box>
           </Box>
