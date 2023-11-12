@@ -20,34 +20,20 @@ const HomePage = () => {
 
         signInWithPopup(auth, provider)
             .then((result) => {
+                
                 const user = result.user;
-                const q = query(collection(db, 'anfitriones'), where('userId', '==', user.uid), limit(1));
-                getDocs(q)
-                    .then(async (querySnapshot) => {
-                        if (!querySnapshot.empty) {
-                            // setIsLoading(false)
-                            const doc = querySnapshot.docs[0];
-                            toast.success("Accediendo a tu perfil " + (user.displayName ?? user.email), {
-                                theme: "colored",
-                                position: "top-center"
-                            })
-                            setTimeout(function () {
-                                window.location.href = "/gallery";
-                            }, 3000);
-                        } else {
-                            await deleteUser(auth.currentUser);
-                            toast.error("Este correo no existe, por favor registrate", {
-                                theme: "colored",
-                                position: "top-center"
-                            });
-                            auth.signOut();
-                        }
-                    })
-                    .catch((error) => {
-                        console.error('Error al buscar el usuario:', error);
-                        errorManagment(error.code);
-                    });
+
+                toast.success("Accediendo a tu perfil " + (user.displayName ?? user.email), {
+                    theme: "colored",
+                    position: "top-center"
+                })
+
+                setTimeout(function () {
+                    window.location.href = "/gallery";
+                }, 2000);
+
             }).catch((error) => {
+                console.log("Error google: ", error.code | error.message)
                 errorManagment(error.code);
             });
     }

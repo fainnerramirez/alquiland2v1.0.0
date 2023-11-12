@@ -16,13 +16,23 @@
   Image,
   color
 } from "@chakra-ui/react";
-import { SingIn } from "./SignIn";
-import { COLORS } from "../utils/Colors";
+import { useContext } from "react"
+import { AuthContext } from "../context/authContext";
 
 export default function Navbar() {
 
   const Links = ["Inicio", "Acerca de", "Contacto"];
   const { isOpen } = useDisclosure();
+  const { userAuth, auth} = useContext(AuthContext)
+
+  const handleLogout = async () => {
+    console.log("Click")
+    await auth.signOut();
+
+    window.location.href = "/";
+  }
+
+  console.log("User auth: ", userAuth);
 
   return (
     <>
@@ -56,17 +66,17 @@ export default function Navbar() {
               >
                 <Avatar
                   size={{ base: "sm", sm: "sm", md: "md", lg: "md" }}
-                  src={""}
+                  src={`https://ui-avatars.com/api/?name=${userAuth?.displayName}&background=0D8ABC&color=fff&size=128`}
                 />
               </MenuButton>
               <MenuList>
                 <MenuItem>
-                  <Text>Ver Perfil</Text>
+                  <Text fontWeight={'bold'}>{userAuth?.displayName}</Text>
                 </MenuItem>
                 <MenuDivider />
                 <MenuItem>
-                  <Button colorScheme={"blue"} >
-                    Salir
+                  <Button colorScheme={"teal"} variant={'outline'} width={'full'} onClick={handleLogout}>
+                    cerrar sesión
                   </Button>
                 </MenuItem>
               </MenuList>

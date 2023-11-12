@@ -70,6 +70,33 @@ export const getAllAdvertsAnfitrionByUserId = async (userId, limite) => {
     }
 }
 
+export const getAllAdvertsAnfitrion = async (limite) => {
+
+    try {
+
+        const q = query(collection(db, 'anunciosPorAnfitrion'), limit(limite));
+        const querySnapshot = await getDocs(q);
+
+        if (!querySnapshot.empty) {
+
+            let docs = [];
+            querySnapshot.docs.forEach((doc, i) => {
+                docs.push({ id: doc.id, ...doc.data() })
+            });
+
+            return docs;
+
+        } else {
+            return null;
+        }
+
+    } catch (error) {
+        console.error('Error al buscar el los anuncios por usuario:', error);
+        return null;
+    }
+
+}
+
 export const createAdvertForAnfitrion = async (userId, options) => {
 
     try {

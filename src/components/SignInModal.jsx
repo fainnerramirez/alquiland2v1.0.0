@@ -58,11 +58,13 @@ export const SingInModal = () => {
             };
 
             try {
+
                 let response = createStudent(options)
                     .then((response) => {
+
                         toast.success("Usuario creado correctamente", {
                             theme: 'colored',
-                            position: 'top-center'
+                            position: 'top-center',
                         })
 
                         setTimeout(() => {
@@ -77,7 +79,7 @@ export const SingInModal = () => {
         }
         else {
 
-            toast.error("LLena todos los mensajes", {
+            toast.error("LLena todos los campos requeridos", {
                 theme: 'colored',
                 position: 'top-center'
             })
@@ -116,7 +118,7 @@ export const SingInModal = () => {
                                     />
                                 </FormControl>
                                 <FormControl isRequired>
-                                    <FormLabel>Correo institucional</FormLabel>
+                                    <FormLabel>Correo institucional o personal</FormLabel>
                                     <Input
                                         type="email"
                                         onChange={(e) => setEmail(e.target.value)}
@@ -162,13 +164,13 @@ export const SingInModal = () => {
                                     <Button isLoading={isLoading} onClick={handleFormStudent} colorScheme="teal" variant={'outline'} mr={3}>
                                         Crear cuenta
                                     </Button>
-                                    <ToastContainer autoClose={false} />
                                 </Box>
                             </VStack>
                         </form>
                     </ModalBody>
                 </ModalContent>
             </Modal>
+            <ToastContainer />
         </>
     );
 };
