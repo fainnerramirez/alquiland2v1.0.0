@@ -25,6 +25,7 @@ import { Toast } from "../utils/Toast";
 import { ToastContainer } from "react-toastify"
 import { FcGoogle } from "react-icons/fc";
 import { MdArrowDropDown } from "react-icons/md";
+import { createStudent } from "../firebase/collections/querys/students";
 
 export const SingInModal = () => {
 
@@ -36,6 +37,20 @@ export const SingInModal = () => {
     const [age, setAge] = useState(null);
     const [facultad, setFacultad] = useState(null);
     const [semestre, setSemestre] = useState(null);
+
+    const handleFormStudent = async (event) => {
+        event.preventDefault();
+
+        let options = {
+            username,
+            email,
+            age,
+            facultad,
+            semestre
+        };
+        console.log("Options: ", { options })
+        await createStudent(options);
+    }
 
     return (
         <>
@@ -63,23 +78,26 @@ export const SingInModal = () => {
                                     <Input
                                         type="text"
                                         ref={initialRef}
+                                        onChange={(e) => setUsername(e.target.value)}
                                     />
                                 </FormControl>
                                 <FormControl isRequired>
                                     <FormLabel>Correo institucional</FormLabel>
                                     <Input
                                         type="email"
+                                        onChange={(e) => setEmail(e.target.value)}
                                     />
                                     <FormHelperText>Escribe un correo válido. Te enviaremos un correo electrónico para verificarlo</FormHelperText>
                                 </FormControl>
                                 <HStack spacing={5} width={'full'}>
                                     <FormControl isRequired>
                                         <FormLabel>Edad</FormLabel>
-                                        <Input type="number" />
+                                        <Input type="number" onChange={(e) => setAge(e.target.value)} />
                                     </FormControl>
                                     <FormControl isRequired>
                                         <FormLabel>Facultad</FormLabel>
-                                        <Select icon={<MdArrowDropDown />}>
+                                        <Select icon={<MdArrowDropDown />} onChange={(e) => setFacultad(e.target.value)}>
+                                            <option value="" selected>Seleccionar</option>
                                             <option value="ingenieria">Ingeniería</option>
                                             <option value="derecho">Derecho</option>
                                             <option value="ciencias de la salud">Ciencias de la Salud</option>
@@ -90,7 +108,8 @@ export const SingInModal = () => {
                                     </FormControl>
                                     <FormControl isRequired>
                                         <FormLabel>Semestre</FormLabel>
-                                        <Select icon={<MdArrowDropDown />}>
+                                        <Select icon={<MdArrowDropDown />} onChange={(e) => setSemestre(e.target.value)}>
+                                            <option value="" selected>seleccionar</option>
                                             <option value="1">Primer semestre</option>
                                             <option value="2">Segundo semestre</option>
                                             <option value="3">Tercer semestre</option>
@@ -106,7 +125,7 @@ export const SingInModal = () => {
                                     </FormControl>
                                 </HStack>
                                 <Box align="center" mt="4">
-                                    <Button type="submit" colorScheme="teal" variant={'outline'} mr={3}>
+                                    <Button onClick={handleFormStudent} colorScheme="teal" variant={'outline'} mr={3}>
                                         Crear cuenta
                                     </Button>
                                     <ToastContainer autoClose={false} />
