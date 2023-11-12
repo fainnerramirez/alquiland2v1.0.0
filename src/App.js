@@ -8,6 +8,7 @@ import { PATHS } from "./utils/PathsRouter";
 import HomePage from "./pages/HomePage";
 import Layout from "./Layout/Layout";
 import Gallery from "./components/Gallery";
+import PensionDetail from "./components/PensionDetail";
 
 const router = createBrowserRouter([
   {
@@ -17,8 +18,12 @@ const router = createBrowserRouter([
   },
   {
     path: "/gallery",
-    //element: <ContainerPensions />,
     element: <Gallery />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/gallery/:anuncioId",
+    element: <PensionDetail />,
     errorElement: <ErrorPage />,
   },
 ]);

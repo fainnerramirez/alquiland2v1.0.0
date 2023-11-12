@@ -1,33 +1,32 @@
 ﻿import {
-  Badge,
+  Avatar,
   Box,
   Card,
   CardBody,
-  HStack,
-  Heading,
+  CardFooter,
   Image,
   SkeletonCircle,
-  Stack,
+  Tag,
+  TagLabel,
   Text
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import React, { useState, useContext } from "react";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { AuthContext } from "../context/authContext";
+import { useFormatPrice } from "../custom/Hooks/useFormatPrice";
 
 export const CardPension = ({
   anuncio
 }) => {
-  const image = "https://i.pinimg.com/236x/9f/aa/42/9faa4266f1a6eb1790622d745cec62ba.jpg";
+
   const [selectHeart, SetSelectHeart] = useState(false);
   const { userAuth } = useContext(AuthContext);
-
-  const handleClickHeart = (e) => {
-    SetSelectHeart(!selectHeart);
-  };
+  const { convertPrice } = useFormatPrice();
 
   const handleImageDetails = () => {
     console.log("Click!: ", anuncio);
+    
   }
 
   return (
@@ -39,15 +38,18 @@ export const CardPension = ({
         delay: 0.2,
         ease: [0, 0.71, 0.2, 1.01],
       }}
+      as={'button'} 
+      onClick={handleImageDetails}
+      style={{cursor: 'pointer'}}
     >
-      <Card border={'none'} boxShadow={'none'}>
+      <Card border={'none'} boxShadow={'none'} maxW='sm'>
         <CardBody padding="10px">
           <Box
             as="button"
             position="absolute"
             top="6"
-            left="340"
-            onClick={(e) => handleClickHeart()}
+            left="320"
+            onClick={(e) => SetSelectHeart(!selectHeart)}
           >
             {selectHeart ? (
               <AiFillHeart size="35px" color="red" />
@@ -55,7 +57,7 @@ export const CardPension = ({
               <AiOutlineHeart size="35px" color="white" />
             )}
           </Box>
-          <Box as={'button'} onClick={handleImageDetails}>
+          <Box>
             <Image
               src={anuncio.urlPhoto}
               alt={anuncio.username ?? "usuario"}
@@ -68,36 +70,34 @@ export const CardPension = ({
           </Box>
           {
             userAuth ?
-              <HStack spacing={5} mt={2}>
-                <Image boxSize='50px'
-                  objectFit='cover'
-                  alt={userAuth?.displayName} src={userAuth?.photoURL} borderRadius={'50%'} />
-                <Box>
-                  <Text fontWeight={'bold'} textTransform={'capitalize'}>{userAuth?.displayName}</Text>
-                  <Text textTransform={'capitalize'}>{anuncio.city}, {anuncio.country}</Text>
-                </Box>
-              </HStack>
+              <Tag
+                position="absolute"
+                top="6"
+                left="7"
+                size='lg'
+                colorScheme='teal'
+                borderRadius='full'
+                width={'50%'}>
+                <Avatar
+                  src={userAuth?.photoURL}
+                  size='xs'
+                  name='Segun Adebayo'
+                  ml={-1}
+                  mr={2}
+                />
+                <TagLabel>{userAuth?.displayName}</TagLabel>
+              </Tag>
               :
               <SkeletonCircle size='10' />
           }
-          {/* <Box>
-            {
-              anuncio?.services.map((service, index) => (
-                <Badge
-                  variant='subtle'
-                  colorScheme='teal'
-                  key={index}
-                  borderRadius={35}
-                  pt={2}
-                  pb={2}
-                  pl={3}
-                  pr={3}>
-                  {service.label}
-                </Badge>
-              ))
-            }
-          </Box> */}
+          <Box>
+            <Text textTransform={'capitalize'} fontWeight={'bold'}>{anuncio?.city}, {anuncio?.country}</Text>
+            <Text>{anuncio?.dateCreatedAt}</Text>
+          </Box>
         </CardBody>
+        <CardFooter p={0}>
+          <Text ml={2} fontWeight={'bold'}>$ {convertPrice(anuncio?.price)} COP<span style={{ fontWeight: 'normal' }}> mes</span></Text>
+        </CardFooter>
       </Card>
     </motion.div>
   );

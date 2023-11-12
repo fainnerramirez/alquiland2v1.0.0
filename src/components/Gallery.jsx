@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { CardPension } from './CardPension'
 import Navbar from './Navbar';
-import { Services } from './Services';
-import { Box, HStack, Heading } from '@chakra-ui/react';
+import { Box, Heading } from '@chakra-ui/react';
 import { getAllAdvertsAnfitrion } from '../firebase/collections/querys/anfitriones';
+import { ToastContainer, toast } from 'react-toastify';
+import {Link} from "react-router-dom"
 
 const Gallery = () => {
 
@@ -12,24 +13,33 @@ const Gallery = () => {
     useEffect(() => {
         const getDocuments = async () => {
             let documents = await getAllAdvertsAnfitrion(10);
-            console.log("Documents query: ", document);
             setAnuncios(documents);
+            console.log("Documents: ", documents)
         }
         getDocuments();
+    }, [])
 
+    useEffect(() => {
+        toast.info("Dale clic a cualquiera de las fotos para ver sus detalles", {
+            theme: 'colored',
+            position: 'top-center'
+        })
     }, [])
 
     return (
         <>
             <Navbar />
             <Heading textAlign={'center'} pt={10} pb={10}>Anuncios publicados</Heading>
-            <HStack width={"90%"} margin={'auto'} spacing={10} flexWrap={'wrap'}>
+            <Box width={"95%"} margin={'auto'} display={'flex'} flexWrap={'wrap'} justifyContent={'flex-start'} alignItems={'center'} gap={10}>
                 {
-                    anuncios.map((anuncio, i) => {
-                        return <CardPension key={i} anuncio={anuncio} />
-                    })
+                    anuncios.map((anuncio, i) => (
+                        <Link to={'/gallery/' + anuncio?.id}>
+                            <CardPension anuncio={anuncio} key={anuncio?.id}/>
+                        </Link>
+                    ))
                 }
-            </HStack>
+            </Box>
+            <ToastContainer />
         </>
     )
 }

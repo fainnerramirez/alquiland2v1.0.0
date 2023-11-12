@@ -1,5 +1,5 @@
 import { db } from '../../firestore/database';
-import { collection, query, where, limit, getDocs, addDoc, deleteDoc, doc } from 'firebase/firestore';
+import { collection, query, where, limit, getDocs, addDoc, deleteDoc, doc, getDoc } from 'firebase/firestore';
 import { errorManagment } from '../../errors/errorManagmentUser';
 import { showSuccessAlert, showWarningAlert, showWarningAlertConfirm } from '../../../utils/SwalAlert';
 import moment from 'moment';
@@ -63,6 +63,27 @@ export const getAllAdvertsAnfitrionByUserId = async (userId, limite) => {
             } else {
                 return null;
             }
+        } catch (error) {
+            console.error('Error al buscar el los anuncios por usuario:', error);
+            return null;
+        }
+    }
+}
+
+export const getAdvertsAnfitrionByAnuncioId = async (anuncioId) => {
+
+    if (anuncioId) {
+        try {
+
+            const documentoRef = doc(collection(db, 'anunciosPorAnfitrion'), anuncioId);
+            const querySnapshot = await getDoc(documentoRef);
+            
+            if (!querySnapshot.empty) {
+                return { id: querySnapshot.id, ...querySnapshot.data() };
+            } else {
+                return null;
+            }
+
         } catch (error) {
             console.error('Error al buscar el los anuncios por usuario:', error);
             return null;
