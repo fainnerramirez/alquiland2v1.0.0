@@ -26,6 +26,10 @@ export const CardPension = ({
     SetSelectHeart(!selectHeart);
   };
 
+  const handleImageDetails = () => {
+    console.log("Click!: ", anuncio);
+  }
+
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.5 }}
@@ -51,15 +55,17 @@ export const CardPension = ({
               <AiOutlineHeart size="35px" color="white" />
             )}
           </Box>
-          <Image
-            src={anuncio.urlPhoto}
-            alt={anuncio.username ?? "usuario"}
-            borderTopRadius="lg"
-            height={"300px"}
-            width={"380px"}
-            fallbackSrc="https://via.placeholder.com/420"
-            borderRadius={'lg'}
-          />
+          <Box as={'button'} onClick={handleImageDetails}>
+            <Image
+              src={anuncio.urlPhoto}
+              alt={anuncio.username ?? "usuario"}
+              borderTopRadius="lg"
+              height={"300px"}
+              width={"380px"}
+              fallbackSrc="https://via.placeholder.com/420"
+              borderRadius={'lg'}
+            />
+          </Box>
           {
             userAuth ?
               <HStack spacing={5} mt={2}>
