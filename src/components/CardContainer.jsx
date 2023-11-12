@@ -1,13 +1,11 @@
 ﻿import React from "react";
-import { Stack, Flex, Divider } from "@chakra-ui/react";
-
-import { ContainerCardsPension } from "./ContainerCardsPension";
+import { Stack, Flex, Divider, Text } from "@chakra-ui/react";
 
 export const CardsContainer = () => {
   return (
     <Stack>
       <Flex alignItems={"center"} justifyContent={"space-evenly"}>
-        <ContainerCardsPension category="todas" />
+        <Text>Hola</Text>
       </Flex>
       <Divider />
     </Stack>

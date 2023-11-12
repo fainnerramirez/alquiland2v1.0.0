@@ -2,7 +2,7 @@
 import { Box, Stack, Flex, Divider, Heading } from "@chakra-ui/react";
 import { Services } from "./Services";
 
-export const ContainerCardsPension = ({ category }) => {
+export const ContainerPensions = () => {
   return (
     <Flex flexDirection="column">
       <Stack marginBottom={"20px"}>

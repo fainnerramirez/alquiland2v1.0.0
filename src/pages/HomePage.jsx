@@ -32,8 +32,7 @@ const HomePage = () => {
                                 position: "top-center"
                             })
                             setTimeout(function () {
-                                // window.location.href = "user/" + doc?.id;
-                                window.location.reload();
+                                window.location.href = "/gallery";
                             }, 3000);
                         } else {
                             await deleteUser(auth.currentUser);

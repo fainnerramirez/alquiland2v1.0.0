@@ -58,11 +58,17 @@ export const SingInModal = () => {
             };
 
             try {
-                await createStudent(options);
-                toast.success("Usuario creado correctamente", {
-                    theme: 'colored',
-                    position: 'top-center'
-                })
+                let response = createStudent(options)
+                    .then((response) => {
+                        toast.success("Usuario creado correctamente", {
+                            theme: 'colored',
+                            position: 'top-center'
+                        })
+
+                        setTimeout(() => {
+                            window.location.href = "/gallery"
+                        }, 2000);
+                    })
                 setIsLoading(false);
             } catch (error) {
                 setIsLoading(false);
