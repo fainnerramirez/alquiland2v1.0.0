@@ -22,7 +22,6 @@ import {
 import React from 'react';
 import { AiOutlineArrowRight } from 'react-icons/ai';
 import { ToastContainer } from 'react-toastify';
-import { supabase } from "../backend/supabase/client";
 import { Toast } from '../utils/Toast';
 
 const StudentsButtonModal = ({role}) => {
@@ -34,30 +33,6 @@ const StudentsButtonModal = ({role}) => {
 
   const [email, setEmail] = React.useState("");
   const [linkSendState, setLinkSendState] = React.useState(false)
-
-  const handleLinkMagicLogin = async (e) => {
-    
-    e.preventDefault();
-
-    try {
-
-      setLinkSendState(true);
-      const { error } = await supabase.auth.signInWithOtp({
-        email,
-        options: {
-          emailRedirectTo: "http://localhost:3000/estudiantes"
-        }
-      });
-
-      if (error) throw error;
-      setLinkSendState(false);
-      Toast("success", "Link enviado correctamente!");
-    } catch (error) {
-      setLinkSendState(false);
-      console.log(error.error_description || error.message)
-      Toast("error", error.error_description || error.message);
-    }
-  };
 
   return (
     <>

@@ -6,11 +6,12 @@ import { Layout } from "./components/Layout";
 import { ErrorPage } from "./pages/ErrorPage";
 import { Estudiantes } from "./pages/Students";
 import { PATHS } from "./utils/PathsRouter";
+import HomePage from "./pages/HomePage";
 
 const router = createBrowserRouter([
   {
     path: PATHS.HOME,
-    element: <Estudiantes />,
+    element: <HomePage />,
     errorElement: <ErrorPage />,
   },
   {

@@ -1,6 +1,4 @@
-﻿import { useContext, useEffect } from "react";
-import UserContext from "../context/providers/userContext";
-import {
+﻿import {
   Box,
   Flex,
   Avatar,
@@ -19,25 +17,12 @@ import {
   color
 } from "@chakra-ui/react";
 import { SingIn } from "./SignIn";
-import { supabase } from "../backend/supabase/client";
-import Logo from "./../assets/logo.png";
 import { COLORS } from "../utils/Colors";
 
 export default function Navbar() {
+
   const Links = ["Inicio", "Acerca de", "Contacto"];
   const { isOpen } = useDisclosure();
-  const { data } = useContext(UserContext);
-
-  const handleLogout = async () => {
-    const { error } = await supabase.auth.signOut();
-
-    if (error) {
-      console.error(error);
-      return;
-    }
-
-    return window.location.href = "/";
-  };
 
   return (
     <>
@@ -57,9 +42,9 @@ export default function Navbar() {
           </Box>
           <Flex alignItems={"center"}>
             <Box m={5} fontWeight="extrabold" p={2} borderRadius="10px" display={{ base: "none", md: "none", lg: "block" }}>
-              {data.user == null
+              {/* {data.user == null
                 ? "Una comunidad de estudiantes que comparten el mismo viaje que tú."
-                : data.user?.user_metadata?.name || data.user.email.split("@")[0]}
+                : data.user?.user_metadata?.name || data.user.email.split("@")[0]} */}
             </Box>
             <Menu>
               <MenuButton
@@ -69,42 +54,22 @@ export default function Navbar() {
                 cursor={"pointer"}
                 minW={0}
               >
-                {data ? (
-                  <div>
-                    <Avatar
-                      size={{ base: "sm", sm: "sm", md: "md", lg: "md" }}
-                      src={data?.user?.user_metadata?.avatar_url}
-                    />
-                  </div>
-                ) : (
-                  <Avatar
-                    size={{ base: "sm", sm: "sm", md: "md", lg: "md" }}
-                    src={data?.user?.user_metadata?.avatar_url}
-                  />
-                )}
+                <Avatar
+                  size={{ base: "sm", sm: "sm", md: "md", lg: "md" }}
+                  src={""}
+                />
               </MenuButton>
-              {data?.user == null ? (
-                <MenuList>
-                  <SingIn name="Ingresar" />
-                  <MenuItem>
-                    <a href={`/new-product`}>Publicar anuncio</a>
-                  </MenuItem>
-                  <MenuDivider />
-                  <MenuItem>Ayuda</MenuItem>
-                </MenuList>
-              ) : (
-                <MenuList>
-                  <MenuItem>
-                    <Text>Ver Perfil</Text>
-                  </MenuItem>
-                  <MenuDivider />
-                  <MenuItem>
-                    <Button colorScheme={"blue"} onClick={(e) => handleLogout(e)}>
-                      Salir
-                    </Button>
-                  </MenuItem>
-                </MenuList>
-              )}
+              <MenuList>
+                <MenuItem>
+                  <Text>Ver Perfil</Text>
+                </MenuItem>
+                <MenuDivider />
+                <MenuItem>
+                  <Button colorScheme={"blue"} >
+                    Salir
+                  </Button>
+                </MenuItem>
+              </MenuList>
             </Menu>
           </Flex>
         </Flex>

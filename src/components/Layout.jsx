@@ -6,8 +6,7 @@ import { Box } from "@chakra-ui/react";
 export const Layout = ({ children }) => {
   return (
     <React.Fragment>
-        <Navbar />
-        <Box>{children}</Box>
+        <Box height={'86vh'}>{children}</Box>
         <Footer />
     </React.Fragment>
   );

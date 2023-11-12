@@ -45,9 +45,7 @@ export const Footer = () => {
       <Container
         as={Stack}
         maxW={"6xl"}
-        py={3}
         direction={{ base: "column", md: "row" }}
-        spacing={4}
         justify={{ base: "center", md: "space-between" }}
         align={{ base: "center", md: "center" }}
       >
@@ -55,7 +53,7 @@ export const Footer = () => {
           <Image 
             src={Logo} 
             alt="Logo unipensiones"
-            width={"200px"} 
+            width={"70px"} 
           />
         </Heading>
         <Text textAlign={"center"}>

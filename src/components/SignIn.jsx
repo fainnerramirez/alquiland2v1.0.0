@@ -18,7 +18,6 @@ import {
   Divider,
   FormHelperText,
 } from "@chakra-ui/react";
-import { supabase } from "../backend/supabase/client";
 import { Toast } from "../utils/Toast";
 import { ToastContainer } from "react-toastify"
 
@@ -29,24 +28,7 @@ export const SingIn = ({ name }) => {
   const finalRef = React.useRef(null);
 
   const [email, setEmail] = React.useState("");
-
-  const handleLinkMagicLogin = async (e) => {
-    e.preventDefault();
-    try {
-      console.log(email);
-      const { error } = await supabase.auth.signInWithOtp({
-        email,
-        options: {
-          emailRedirectTo: "http://localhost:3000/estudiantes"
-        }
-      });
-      if (error) throw error;
-      Toast("success", "Link enviado correctamente!. Revisa tu correo");
-    } catch (error) {
-      Toast("error", error.error_description || error.message);
-    }
-  };
-
+  
   return (
     <>
       <MenuItem as="button" onClick={onOpen}>
@@ -66,7 +48,7 @@ export const SingIn = ({ name }) => {
           </ModalHeader>
           <ModalCloseButton />
           <ModalBody pb={6}>
-            <form onSubmit={handleLinkMagicLogin}>
+            <form>
               <FormControl>
                 <FormLabel>Correo electrónico</FormLabel>
                 <Input
