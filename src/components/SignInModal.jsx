@@ -22,16 +22,18 @@ import {
     VStack,
 } from "@chakra-ui/react";
 import { Toast } from "../utils/Toast";
-import { ToastContainer } from "react-toastify"
+import { ToastContainer, toast } from "react-toastify"
 import { FcGoogle } from "react-icons/fc";
 import { MdArrowDropDown } from "react-icons/md";
 import { createStudent } from "../firebase/collections/querys/students";
+import { errorManagment } from "../firebase/errors/errorManagmentUser";
 
 export const SingInModal = () => {
 
     const { isOpen, onOpen, onClose } = useDisclosure();
     const initialRef = React.useRef(null);
     const finalRef = React.useRef(null);
+    const [isLoading, setIsLoading] = useState(null);
     const [username, setUsername] = useState(null);
     const [email, setEmail] = React.useState(null);
     const [age, setAge] = useState(null);
@@ -40,16 +42,42 @@ export const SingInModal = () => {
 
     const handleFormStudent = async (event) => {
         event.preventDefault();
+        setIsLoading(true);
 
-        let options = {
-            username,
-            email,
-            age,
-            facultad,
-            semestre
-        };
-        console.log("Options: ", { options })
-        await createStudent(options);
+        const isValid = username && email && age && facultad && semestre;
+
+        if (isValid) {
+
+            let options = {
+                username,
+                email,
+                age,
+                facultad,
+                semestre,
+                savePensions: []
+            };
+
+            try {
+                await createStudent(options);
+                toast.success("Usuario creado correctamente", {
+                    theme: 'colored',
+                    position: 'top-center'
+                })
+                setIsLoading(false);
+            } catch (error) {
+                setIsLoading(false);
+                errorManagment(error.code)
+            }
+        }
+        else {
+
+            toast.error("LLena todos los mensajes", {
+                theme: 'colored',
+                position: 'top-center'
+            })
+
+            setIsLoading(false);
+        }
     }
 
     return (
@@ -125,7 +153,7 @@ export const SingInModal = () => {
                                     </FormControl>
                                 </HStack>
                                 <Box align="center" mt="4">
-                                    <Button onClick={handleFormStudent} colorScheme="teal" variant={'outline'} mr={3}>
+                                    <Button isLoading={isLoading} onClick={handleFormStudent} colorScheme="teal" variant={'outline'} mr={3}>
                                         Crear cuenta
                                     </Button>
                                     <ToastContainer autoClose={false} />
