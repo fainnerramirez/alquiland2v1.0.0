@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from "react-router-dom"
-import { getAdvertsAnfitrionByAnuncioId } from '../firebase/collections/querys/anfitriones';
-import { Badge, Box, HStack, Heading, Image, List, ListIcon, ListItem, Skeleton, Text } from '@chakra-ui/react';
+import { getAdvertsAnfitrionByAnuncioId, getAllAdvertsAnfitrion } from '../firebase/collections/querys/anfitriones';
+import { Badge, Box, HStack, Heading, Image, List, ListIcon, ListItem, Skeleton, Stack, Text } from '@chakra-ui/react';
 import { useFormatPrice } from '../custom/Hooks/useFormatPrice';
 import { MdCheckCircle } from 'react-icons/md';
 import { BsBookmarkCheckFill } from "react-icons/bs";
+import { Link } from "react-router-dom"
 
 
 const PensionDetail = () => {
 
     const [document, setDocument] = useState(null);
+    const [arrayDocuments, setArrayDocuments] = useState([]);
     const { convertPrice } = useFormatPrice();
     const { anuncioId } = useParams()
 
@@ -19,6 +21,15 @@ const PensionDetail = () => {
             setDocument(document);
         }
         getDocument();
+    }, [anuncioId])
+
+    useEffect(() => {
+        const getDocumentsAll = async () => {
+            const getAll = await getAllAdvertsAnfitrion();
+            setArrayDocuments(getAll);
+        }
+
+        getDocumentsAll();
     }, [anuncioId])
 
     return (
@@ -33,15 +44,23 @@ const PensionDetail = () => {
                     }
                 </Box>
                 <Box>
-                    <Text fontSize={20} fontWeight={'bold'} p={5}>Otras pensiones</Text>
-                    <Box>
+                    <Text fontSize={20} fontWeight={'bold'} pt={5} pb={5}>Otras pensiones</Text>
+                    <HStack spacing={5} >
                         {
                             document != null ?
-                                <Image src={document?.urlPhoto} width={200} height={150} borderRadius={'lg'} />
+                                arrayDocuments.splice(0, 3).map((doc, i) => {
+                                    return <Link to={'/gallery/' + doc.id}>
+                                        <Image src={doc?.urlPhoto} width={150} height={100} borderRadius={'lg'} />
+                                    </Link>
+                                })
                                 :
-                                <Skeleton width={200} height={150} />
+                                <HStack>
+                                    <Skeleton width={150} height={100} />
+                                    <Skeleton width={150} height={100} />
+                                    <Skeleton width={150} height={100} />
+                                </HStack>
                         }
-                    </Box>
+                    </HStack>
                 </Box>
             </Box>
             <Box display={'flex'} flexDir={'column'} justifyContent={'flex-start'} alignItems={'flex-start'}>
@@ -53,7 +72,7 @@ const PensionDetail = () => {
                             <Text>agregado el {document?.dateCreatedAt}</Text>
                             <Text fontStyle={'italic'}> {document?.direction}</Text>
                             <Text mt={5} mb={5}>{document?.description}</Text>
-                            <Text fontWeight={'bold'}> $ {document?.price} COP mes</Text>
+                            <Text fontWeight={'bold'} fontSize={23}> $ {document?.price} COP mes</Text>
                             <Heading as="h6" size={'md'} mt={5}>Caracteristicas</Heading>
                             <List spacing={3} mt={2}>
                                 <ListItem>
@@ -99,7 +118,7 @@ const PensionDetail = () => {
                         <Skeleton mt={100} width={300} height={500} />
                 }
             </Box>
-        </HStack>
+        </HStack >
     )
 }
 
