@@ -59,7 +59,7 @@ export const CardPension = ({
           </Box>
           <Box>
             <Image
-              src={anuncio.userPhoto}
+              src={anuncio.urlPhoto}
               alt={anuncio.username}
               borderTopRadius="lg"
               height={"300px"}
