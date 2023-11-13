@@ -28,7 +28,7 @@ export const CardPension = ({
 
   const handleImageDetails = () => {
     console.log("Click!: ", anuncio);
-    
+
   }
 
   return (
@@ -40,9 +40,9 @@ export const CardPension = ({
         delay: 0.2,
         ease: [0, 0.71, 0.2, 1.01],
       }}
-      as={'button'} 
+      as={'button'}
       onClick={handleImageDetails}
-      style={{cursor: 'pointer'}}
+      style={{ cursor: 'pointer' }}
     >
       <Card border={'none'} boxShadow={'none'} maxW='sm'>
         <CardBody padding="10px">
@@ -94,7 +94,7 @@ export const CardPension = ({
           }
           <Box>
             <Text textTransform={'capitalize'} fontWeight={'bold'}>{anuncio?.city}, {anuncio?.country}</Text>
-            <Text> {moment(anuncio?.dateCreatedAt).format('ll')}</Text>
+            <Text> {moment('13/11/2023', 'DD/MM/YYYY').format('ll')}</Text>
           </Box>
         </CardBody>
         <CardFooter p={0}>
