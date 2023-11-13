@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from "react-router-dom"
 import { getAdvertsAnfitrionByAnuncioId, getAllAdvertsAnfitrion } from '../firebase/collections/querys/anfitriones';
-import { Badge, Box, HStack, Heading, Image, List, ListIcon, ListItem, Skeleton, Stack, Text } from '@chakra-ui/react';
+import { Badge, Box, HStack, Heading, Image, List, ListIcon, ListItem, Skeleton, Text } from '@chakra-ui/react';
 import { useFormatPrice } from '../custom/Hooks/useFormatPrice';
-import { MdCheckCircle } from 'react-icons/md';
 import { BsBookmarkCheckFill } from "react-icons/bs";
 import { Link } from "react-router-dom"
-
 
 const PensionDetail = () => {
 
