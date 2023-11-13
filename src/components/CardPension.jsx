@@ -59,8 +59,8 @@ export const CardPension = ({
           </Box>
           <Box>
             <Image
-              src={anuncio.urlPhoto}
-              alt={anuncio.username ?? "usuario"}
+              src={anuncio.userPhoto}
+              alt={anuncio.username}
               borderTopRadius="lg"
               height={"300px"}
               width={"380px"}
@@ -79,13 +79,13 @@ export const CardPension = ({
                 borderRadius='full'
                 width={'50%'}>
                 <Avatar
-                  src={userAuth?.photoURL}
+                  src={anuncio.userPhoto}
                   size='xs'
-                  name='Segun Adebayo'
+                  name={anuncio.username}
                   ml={-1}
                   mr={2}
                 />
-                <TagLabel>{userAuth?.displayName}</TagLabel>
+                <TagLabel>{anuncio.username}</TagLabel>
               </Tag>
               :
               <SkeletonCircle size='10' />

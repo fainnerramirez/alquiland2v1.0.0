@@ -121,7 +121,7 @@ const PensionDetail = () => {
                         <Skeleton mt={100} width={300} height={500} />
                 }
             </Box>
-        </HStack >
+        </HStack>
     )
 }
 
