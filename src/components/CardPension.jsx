@@ -94,7 +94,7 @@ export const CardPension = ({
           }
           <Box>
             <Text textTransform={'capitalize'} fontWeight={'bold'}>{anuncio?.city}, {anuncio?.country}</Text>
-            <Text> {moment(anuncio.dateCreatedAt, 'DD/MM/YYYY').format('ll')}</Text>
+            <Text> agregado el {moment(anuncio.dateCreatedAt, 'DD/MM/YYYY').format('ll')}</Text>
           </Box>
         </CardBody>
         <CardFooter p={0}>
