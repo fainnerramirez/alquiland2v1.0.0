@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from "react-router-dom"
 import { getAdvertsAnfitrionByAnuncioId, getAllAdvertsAnfitrion } from '../firebase/collections/querys/anfitriones';
-import { Badge, Box, HStack, Heading, Image, List, ListIcon, ListItem, Skeleton, Text } from '@chakra-ui/react';
+import { Badge, Box, Button, HStack, Heading, Image, List, ListIcon, ListItem, Skeleton, Text } from '@chakra-ui/react';
 import { useFormatPrice } from '../custom/Hooks/useFormatPrice';
 import { BsBookmarkCheckFill } from "react-icons/bs";
 import { Link } from "react-router-dom"
+import { IoIosArrowBack } from "react-icons/io";
 
 const PensionDetail = () => {
 
@@ -33,6 +34,10 @@ const PensionDetail = () => {
     return (
         <HStack justifyContent={'center'} alignItems={'flex-start'} height={'100vh'}>
             <Box height={'100vh'} mt={100}>
+                <Link to={'/gallery'}>
+                    <Box mt={5} mb={5}>
+                        <Button leftIcon={<IoIosArrowBack />} colorScheme='teal'>Regresar</Button>
+                    </Box></Link>
                 <Box>
                     {
                         document != null ?
@@ -64,7 +69,7 @@ const PensionDetail = () => {
             <Box display={'flex'} flexDir={'column'} justifyContent={'flex-start'} alignItems={'flex-start'}>
                 {
                     document != null ?
-                        <Box mt={100} ml={5}>
+                        <Box mt={170} ml={5}>
                             <Heading textTransform={'capitalize'}>{document?.title}</Heading>
                             <Text textTransform={'capitalize'} fontWeight={'bold'}>{document?.city} - {document?.country}</Text>
                             <Text>agregado el {document?.dateCreatedAt}</Text>
