@@ -15,6 +15,8 @@ import React, { useState, useContext } from "react";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { AuthContext } from "../context/authContext";
 import { useFormatPrice } from "../custom/Hooks/useFormatPrice";
+import moment from "moment";
+moment.locale('es');
 
 export const CardPension = ({
   anuncio
