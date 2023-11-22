@@ -28,7 +28,6 @@ export const CardPension = ({
 
   const handleImageDetails = () => {
     console.log("Click!: ", anuncio);
-
   }
 
   return (
