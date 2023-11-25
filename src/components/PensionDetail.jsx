@@ -6,6 +6,7 @@ import { useFormatPrice } from '../custom/Hooks/useFormatPrice';
 import { BsBookmarkCheckFill } from "react-icons/bs";
 import { Link } from "react-router-dom"
 import { IoIosArrowBack } from "react-icons/io";
+import { FaWhatsapp } from "react-icons/fa";
 
 const PensionDetail = () => {
 
@@ -27,31 +28,38 @@ const PensionDetail = () => {
             const getAll = await getAllAdvertsAnfitrion();
             setArrayDocuments(getAll);
         }
-
         getDocumentsAll();
-    }, [anuncioId])
-
-    //     <Link to={'/gallery'}>
-    //     <Box mt={5} mb={5}>
-    //         <Button leftIcon={<IoIosArrowBack />} colorScheme='teal'>Regresar</Button>
-    //     </Box>
-    // </Link>
+    }, [arrayDocuments])
 
     return (
         <Box height={'100vh'} display={'grid'} alignContent={'center'} justifyContent={'center'}>
-            <HStack  w={'auto'}>
+            <Link to={'/gallery'}>
+                <Box mt={5} mb={5}>
+                    <Button leftIcon={<IoIosArrowBack />} colorScheme='teal'>Regresar</Button>
+                </Box>
+            </Link>
+            <HStack w={'auto'}>
                 {
                     document != null ?
                         <>
                             <Box height={'auto'} width={'auto'}>
                                 <Image src={document?.urlPhoto} borderRadius={'lg'} width={600} height={450} />
                             </Box>
-                            <Box  width={'400px'}>
+                            <Box width={'400px'}>
                                 <Heading textTransform={'capitalize'}>{document?.title}</Heading>
                                 <Text textTransform={'capitalize'} fontWeight={'bold'}>{document?.city} - {document?.country}</Text>
                                 <Text>agregado el {document?.dateCreatedAt}</Text>
                                 <Text fontStyle={'italic'}> {document?.direction}</Text>
                                 <Text mt={5} mb={5}>{document?.description}</Text>
+                                <Button
+                                    as='a'
+                                    colorScheme='whatsapp'
+                                    href={`https://wa.me/+57${document?.phone}?text=Hola,%20estoy%20interesado%20en%20obtener%20información%20sobre%20esta%20increíble%20pensión.`}
+                                    target={'_blank'}
+                                    leftIcon={<FaWhatsapp fontSize={24} />}
+                                   >
+                                    Chatear con el anfitrión
+                                </Button>
                                 <Text fontWeight={'bold'} fontSize={23}> $ {document?.price} COP mes</Text>
                                 <Heading as="h6" size={'md'} mt={5}>Caracteristicas</Heading>
                                 <List spacing={3} mt={2}>
@@ -71,7 +79,7 @@ const PensionDetail = () => {
                                         <ListIcon as={BsBookmarkCheckFill} color='green.500' />
                                         Barrio {document?.zone}
                                     </ListItem>
-                                </List>  
+                                </List>
                                 <Heading as="h6" size={'md'} mt={5} mb={2}>Servicios que ofrece</Heading>
                                 <HStack width={'auto'} flexWrap={'wrap'}>
                                     {
