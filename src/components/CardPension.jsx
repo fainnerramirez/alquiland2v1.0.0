@@ -45,19 +45,6 @@ export const CardPension = ({
     >
       <Card border={'none'} boxShadow={'none'} maxW='sm'>
         <CardBody padding="10px">
-          <Box
-            as="button"
-            position="absolute"
-            top="6"
-            left="320"
-            onClick={(e) => SetSelectHeart(!selectHeart)}
-          >
-            {selectHeart ? (
-              <AiFillHeart size="35px" color="red" />
-            ) : (
-              <AiOutlineHeart size="35px" color="white" />
-            )}
-          </Box>
           <Box>
             <Image
               src={anuncio.urlPhoto}
@@ -72,11 +59,13 @@ export const CardPension = ({
           {
             userAuth ?
               <Tag
+                variant='solid'
                 position="absolute"
                 top="6"
                 left="7"
                 size='lg'
-                colorScheme='teal'
+                colorScheme="blue"
+                // bgGradient='linear(to-l, #87C4FF, #0174BE)'
                 borderRadius='full'
                 width={'50%'}>
                 <Avatar
@@ -86,7 +75,7 @@ export const CardPension = ({
                   ml={-1}
                   mr={2}
                 />
-                <TagLabel>{anuncio.username}</TagLabel>
+                <TagLabel fontWeight={'bold'}>{anuncio.username}</TagLabel>
               </Tag>
               :
               <SkeletonCircle size='10' />

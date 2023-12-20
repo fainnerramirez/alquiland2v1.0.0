@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { CardPension } from './CardPension'
 import Navbar from './Navbar';
-import { Box, Heading } from '@chakra-ui/react';
+import { Box, Grid, GridItem, Heading } from '@chakra-ui/react';
 import { getAllAdvertsAnfitrion } from '../firebase/collections/querys/anfitriones';
 import { ToastContainer, toast } from 'react-toastify';
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom"
 
 const Gallery = () => {
 
@@ -30,15 +30,20 @@ const Gallery = () => {
         <>
             <Navbar />
             <Heading textAlign={'center'} pt={10} pb={10}>Anuncios publicados</Heading>
-            <Box width={"95%"} margin={'auto'} display={'flex'} flexWrap={'wrap'} justifyContent={'flex-start'} alignItems={'center'} gap={10}>
+            <Grid templateColumns="repeat(5, 1fr)"
+                gap="10"
+                width={'95%'}
+                margin={'auto'}>
                 {
                     anuncios.map((anuncio, i) => (
-                        <Link to={'/gallery/' + anuncio?.id}>
-                            <CardPension anuncio={anuncio} key={anuncio?.id}/>
-                        </Link>
+                        <GridItem>
+                            <Link to={'/gallery/' + anuncio?.id}>
+                                <CardPension anuncio={anuncio} key={anuncio?.id} />
+                            </Link>
+                        </GridItem>
                     ))
                 }
-            </Box>
+            </Grid>
             <ToastContainer />
         </>
     )
