@@ -50,8 +50,8 @@ export const CardPension = ({
               src={anuncio.urlPhoto}
               alt={anuncio.username}
               borderTopRadius="lg"
-              height={"300px"}
-              width={"380px"}
+              height={{ base: '150px', md: "300px" }}
+              width={{ base: '180px', md: "380px" }}
               fallbackSrc="https://via.placeholder.com/420"
               borderRadius={'lg'}
             />
@@ -67,7 +67,8 @@ export const CardPension = ({
                 colorScheme="blue"
                 // bgGradient='linear(to-l, #87C4FF, #0174BE)'
                 borderRadius='full'
-                width={'50%'}>
+                width={'50%'}
+                display={{ base: 'none', md: 'block' }}>
                 <Avatar
                   src={anuncio.userPhoto}
                   size='xs'
@@ -81,12 +82,29 @@ export const CardPension = ({
               <SkeletonCircle size='10' />
           }
           <Box>
-            <Text textTransform={'capitalize'} fontWeight={'bold'}>{anuncio?.city}, {anuncio?.country}</Text>
-            <Text> agregado el {moment(anuncio.dateCreatedAt, 'DD/MM/YYYY').format('ll')}</Text>
+            <Text display={{ base: 'none', md: 'block' }} textTransform={'capitalize'} fontWeight={'bold'}>{anuncio?.city}, {anuncio?.country}</Text>
+            <Text display={{ base: 'none', md: 'block' }}> agregado el {moment(anuncio.dateCreatedAt, 'DD/MM/YYYY').format('ll')}</Text>
+          </Box>
+          <Box width={'full'} mt={1}>
+            <Tag
+              bg={'transparent'}
+              size='md'
+              colorScheme="blue"
+              borderRadius='full'
+            >
+              <Avatar
+                src={anuncio.userPhoto}
+                size='xs'
+                name={anuncio.username}
+                ml={-1}
+                mr={2}
+              />
+              <TagLabel fontWeight={'bold'}>{anuncio.username}</TagLabel>
+            </Tag>
           </Box>
         </CardBody>
         <CardFooter p={0}>
-          <Text ml={2} fontWeight={'bold'}>$ {convertPrice(anuncio?.price)} COP<span style={{ fontWeight: 'normal' }}> mes</span></Text>
+          <Text display={{ base: 'none', md: 'block' }} ml={2} fontWeight={'bold'}>$ {convertPrice(anuncio?.price)} COP<span style={{ fontWeight: 'normal' }}> mes</span></Text>
         </CardFooter>
       </Card>
     </motion.div>

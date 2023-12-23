@@ -30,9 +30,9 @@ const Gallery = () => {
         <>
             <Navbar />
             <Heading textAlign={'center'} pt={10} pb={10}>Anuncios publicados</Heading>
-            <Grid templateColumns={{base: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)', lg: 'repeat(3, 1fr)', xl: 'repeat(5, 1fr)'}}
-                gap="10"
-                width={'95%'}
+            <Grid templateColumns={{base: 'repeat(2, 1fr)', md: 'repeat(2, 1fr)', lg: 'repeat(3, 1fr)', xl: 'repeat(5, 1fr)'}}
+                gap={{base: 1, md: 10}}
+                width={{base: '100%', md: '95%'}}
                 margin={'auto'}>
                 {
                     anuncios.map((anuncio, i) => (
