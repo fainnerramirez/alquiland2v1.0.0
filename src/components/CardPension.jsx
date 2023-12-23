@@ -85,7 +85,7 @@ export const CardPension = ({
             <Text display={{ base: 'none', md: 'block' }} textTransform={'capitalize'} fontWeight={'bold'}>{anuncio?.city}, {anuncio?.country}</Text>
             <Text display={{ base: 'none', md: 'block' }}> agregado el {moment(anuncio.dateCreatedAt, 'DD/MM/YYYY').format('ll')}</Text>
           </Box>
-          <Box width={'full'} mt={1}>
+          <Box width={'full'} mt={2}>
             <Tag
               bg={'transparent'}
               size='md'
