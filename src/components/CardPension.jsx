@@ -56,35 +56,6 @@ export const CardPension = ({
               borderRadius={'lg'}
             />
           </Box>
-          {
-            userAuth ?
-              <Tag
-                variant='solid'
-                position="absolute"
-                top="6"
-                left="7"
-                size='lg'
-                colorScheme="blue"
-                // bgGradient='linear(to-l, #87C4FF, #0174BE)'
-                borderRadius='full'
-                width={'50%'}
-                display={{ base: 'none', md: 'block' }}>
-                <Avatar
-                  src={anuncio.userPhoto}
-                  size='xs'
-                  name={anuncio.username}
-                  ml={-1}
-                  mr={2}
-                />
-                <TagLabel fontWeight={'bold'}>{anuncio.username}</TagLabel>
-              </Tag>
-              :
-              <SkeletonCircle size='10' />
-          }
-          <Box>
-            <Text display={{ base: 'none', md: 'block' }} textTransform={'capitalize'} fontWeight={'bold'}>{anuncio?.city}, {anuncio?.country}</Text>
-            <Text display={{ base: 'none', md: 'block' }}> agregado el {moment(anuncio.dateCreatedAt, 'DD/MM/YYYY').format('ll')}</Text>
-          </Box>
           <Box width={'full'} mt={2}>
             <Tag
               bg={'transparent'}
@@ -101,6 +72,10 @@ export const CardPension = ({
               />
               <TagLabel fontWeight={'bold'}>{anuncio.username}</TagLabel>
             </Tag>
+          </Box>
+          <Box>
+            <Text display={{ base: 'none', md: 'block' }} textTransform={'capitalize'} fontWeight={'bold'}>{anuncio?.city}, {anuncio?.country}</Text>
+            <Text display={{ base: 'none', md: 'block' }}> agregado el {moment(anuncio.dateCreatedAt, 'DD/MM/YYYY').format('ll')}</Text>
           </Box>
         </CardBody>
         <CardFooter p={0}>
