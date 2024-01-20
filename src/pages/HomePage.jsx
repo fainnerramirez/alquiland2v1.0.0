@@ -39,17 +39,17 @@ const HomePage = () => {
     }
 
     return (
-        <HStack spacing={10} justifyContent={'space-between'} mt={{base: 50, md: 200}} flexDir={{base: 'column', md: 'row'}} width={'100%'}>
+        <HStack justifyContent={'space-between'} mt={{base: 50, md: 200}} flexDir={{base: 'column', md: 'row'}}>
             <Box width={{base: '50%', md: '50%'}} display={'flex'} justifyContent={'center'}>
                 <Image src={Logo} borderRadius={'full'}/>
             </Box>
-            <Box width={{base: '100%', md: '50%'}}>
+            <Box width={{md: '50%'}}>
                 <Heading as='h1' size='2xl' textAlign={'center'}>
                     Una comunidad de estudiantes <br /> que comparten el mismo viaje que tú.
                 </Heading>
-                <Box width={{base: '100%', md: '50%'}}>
+                <Box width={{md: '50%'}}>
                     <Text mt={5} textAlign={'left'} fontSize={{base: 25, md: 35}}>Únete hoy</Text>
-                    <Box mt={10}>
+                    <Box mt={{base: 5, md: 10}}>
                         <Box>
                             <Button
                                 leftIcon={<FcGoogle fontSize={25} />}
