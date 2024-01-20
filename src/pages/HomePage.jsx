@@ -75,7 +75,7 @@ const HomePage = () => {
                         </Box>
                     </Box>
                 </Box>
-                <Box mt={10}>
+                <Box mt={10} mb={20}>
                     <Text fontWeight={'bold'} fontSize={20}>¿Ya tienes una cuenta?</Text>
                     <Button mt={5} borderRadius={35} width={{base: '90%', md: '50%'}} colorScheme='blue' variant={'outline'}>Iniciar sesión</Button>
                 </Box>
