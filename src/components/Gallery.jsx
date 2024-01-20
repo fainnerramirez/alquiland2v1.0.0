@@ -36,7 +36,7 @@ const Gallery = () => {
                 margin={'auto'}>
                 {
                     anuncios.map((anuncio, i) => (
-                        <GridItem>
+                        <GridItem key={i}>
                             <Link to={'/gallery/' + anuncio?.id}>
                                 <CardPension anuncio={anuncio} key={anuncio?.id} />
                             </Link>

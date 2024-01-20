@@ -33,7 +33,7 @@ export const SingInModal = () => {
     const { isOpen, onOpen, onClose } = useDisclosure();
     const initialRef = React.useRef(null);
     const finalRef = React.useRef(null);
-    const [isLoading, setIsLoading] = useState(null);
+    const [isLoading, setIsLoading] = useState(false);
     const [username, setUsername] = useState(null);
     const [email, setEmail] = React.useState(null);
     const [age, setAge] = useState(null);
@@ -44,7 +44,8 @@ export const SingInModal = () => {
         event.preventDefault();
         setIsLoading(true);
 
-        const isValid = username && email && age && facultad && semestre;
+        const isValid = username != null && email != null && age != null && facultad != null && semestre != null;
+        console.log("Is Valid: ", isValid);
 
         if (isValid) {
 
@@ -58,20 +59,24 @@ export const SingInModal = () => {
             };
 
             try {
-
                 let response = createStudent(options)
                     .then((response) => {
-
                         toast.success("Usuario creado correctamente", {
                             theme: 'colored',
                             position: 'top-center',
-                        })
+                        });
 
                         setTimeout(() => {
-                            window.location.href = "/gallery"
+                            window.location.href = "/gallery";
                         }, 2000);
                     })
-                setIsLoading(false);
+                    .catch((error) => {
+                        console.log("Error: ", error);
+                    })
+                    .finally(() => {
+                        setIsLoading(false);
+                    });
+
             } catch (error) {
                 setIsLoading(false);
                 errorManagment(error.code)
@@ -90,7 +95,7 @@ export const SingInModal = () => {
 
     return (
         <>
-            <Button width={{base: '90%', md: 'full'}} borderRadius={35} colorScheme='teal' onClick={onOpen}>Crear cuenta</Button>
+            <Button width={{ base: '90%', md: 'full' }} borderRadius={35} colorScheme='teal' onClick={onOpen}>Crear cuenta</Button>
             <Modal
                 initialFocusRef={initialRef}
                 finalFocusRef={finalRef}
