@@ -39,7 +39,7 @@ const HomePage = () => {
     }
 
     return (
-        <HStack spacing={10} justifyContent={'space-between'} mt={{base: 50, md: 200}} flexDir={{base: 'column', md: 'row'}}>
+        <HStack spacing={10} justifyContent={'space-between'} mt={{base: 50, md: 200}} flexDir={{base: 'column', md: 'row'}} width={'100%'}>
             <Box width={{base: '50%', md: '50%'}} display={'flex'} justifyContent={'center'}>
                 <Image src={Logo} borderRadius={'full'}/>
             </Box>

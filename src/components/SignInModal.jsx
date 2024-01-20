@@ -161,7 +161,7 @@ export const SingInModal = () => {
                                     </FormControl>
                                 </HStack>
                                 <Box align="center" mt="4">
-                                    <Button isLoading={isLoading} onClick={handleFormStudent} colorScheme="teal" variant={'outline'} mr={3}>
+                                    <Button isLoading={isLoading} onClick={handleFormStudent} colorScheme="blue" mr={3}>
                                         Crear cuenta
                                     </Button>
                                 </Box>
