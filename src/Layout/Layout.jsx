@@ -32,7 +32,7 @@ const Layout = ({ children }) => {
 
   return (
     <AuthContext.Provider value={{ auth, userAuth }}>
-      <Box bgGradient='linear(to-l, #F6FBFE, #E0E9F5)'>
+      <Box>
         {children}
       </Box>
     </AuthContext.Provider>
