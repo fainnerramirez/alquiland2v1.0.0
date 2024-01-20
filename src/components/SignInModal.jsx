@@ -158,7 +158,7 @@ export const SingInModal = () => {
                                         />
                                         <InputRightElement width='4.5rem'>
                                             <Button h='1.75rem' size='sm' onClick={handleClick}>
-                                                {show ? 'Hide' : 'Show'}
+                                                {show ? 'Ocultar' : 'Mostrar'}
                                             </Button>
                                         </InputRightElement>
                                     </InputGroup>
@@ -172,7 +172,7 @@ export const SingInModal = () => {
                                     <FormControl isRequired>
                                         <FormLabel>Facultad</FormLabel>
                                         <Select icon={<MdArrowDropDown />} onChange={(e) => setFacultad(e.target.value)}>
-                                            <option value="" selected>Seleccionar</option>
+                                            <option value="" defaultValue>Seleccionar</option>
                                             <option value="ingenieria">Ingeniería</option>
                                             <option value="derecho">Derecho</option>
                                             <option value="ciencias de la salud">Ciencias de la Salud</option>
@@ -184,7 +184,7 @@ export const SingInModal = () => {
                                     <FormControl isRequired>
                                         <FormLabel>Semestre</FormLabel>
                                         <Select icon={<MdArrowDropDown />} onChange={(e) => setSemestre(e.target.value)}>
-                                            <option value="" selected>seleccionar</option>
+                                            <option value="" defaultValue>seleccionar</option>
                                             <option value="1">Primer semestre</option>
                                             <option value="2">Segundo semestre</option>
                                             <option value="3">Tercer semestre</option>
