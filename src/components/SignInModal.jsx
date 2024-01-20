@@ -90,7 +90,7 @@ export const SingInModal = () => {
 
     return (
         <>
-            <Button width={'full'} borderRadius={35} colorScheme='teal' onClick={onOpen}>Crear cuenta</Button>
+            <Button width={{base: '90%', md: 'full'}} borderRadius={35} colorScheme='teal' onClick={onOpen}>Crear cuenta</Button>
             <Modal
                 initialFocusRef={initialRef}
                 finalFocusRef={finalRef}

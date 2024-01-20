@@ -39,21 +39,21 @@ const HomePage = () => {
     }
 
     return (
-        <HStack spacing={10} justifyContent={'space-between'} mt={{md: 200}}>
-            <Box width={'50%'} display={'flex'} justifyContent={'center'}>
+        <HStack spacing={10} justifyContent={'space-between'} mt={{base: 50, md: 200}} flexDir={{base: 'column', md: 'row'}}>
+            <Box width={{base: '50%', md: '50%'}} display={'flex'} justifyContent={'center'}>
                 <Image src={Logo} borderRadius={'full'}/>
             </Box>
-            <Box width={'50%'}>
-                <Heading as='h1' size='2xl'>
+            <Box width={{base: '100%', md: '50%'}}>
+                <Heading as='h1' size='2xl' textAlign={'center'}>
                     Una comunidad de estudiantes <br /> que comparten el mismo viaje que tú.
                 </Heading>
-                <Box width={'50%'}>
-                    <Text mt={5} textAlign={'left'} fontSize={35}>Únete hoy</Text>
+                <Box width={{base: '100%', md: '50%'}}>
+                    <Text mt={5} textAlign={'left'} fontSize={{base: 25, md: 35}}>Únete hoy</Text>
                     <Box mt={10}>
                         <Box>
                             <Button
                                 leftIcon={<FcGoogle fontSize={25} />}
-                                width={'full'}
+                                width={{base: '90%', md: 'full'}}
                                 borderRadius={35}
                                 colorScheme={'blue'}
                                 variant={'outline'}
@@ -77,7 +77,7 @@ const HomePage = () => {
                 </Box>
                 <Box mt={10}>
                     <Text fontWeight={'bold'} fontSize={20}>¿Ya tienes una cuenta?</Text>
-                    <Button mt={5} borderRadius={35} width={'50%'} colorScheme='blue' variant={'outline'}>Iniciar sesión</Button>
+                    <Button mt={5} borderRadius={35} width={{base: '90%', md: '50%'}} colorScheme='blue' variant={'outline'}>Iniciar sesión</Button>
                 </Box>
             </Box>
             <ToastContainer />
