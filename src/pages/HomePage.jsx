@@ -20,7 +20,7 @@ const HomePage = () => {
 
         signInWithPopup(auth, provider)
             .then((result) => {
-                
+
                 const user = result.user;
 
                 toast.success("Accediendo a tu perfil " + (user.displayName ?? user.email), {
@@ -39,21 +39,21 @@ const HomePage = () => {
     }
 
     return (
-        <HStack justifyContent={'space-between'} mt={{base: 50, md: 200}} flexDir={{base: 'column', md: 'row'}}>
-            <Box width={{base: '50%', md: '50%'}} display={'flex'} justifyContent={'center'}>
-                <Image src={Logo} borderRadius={'full'}/>
+        <HStack justifyContent={'space-between'} mt={{ base: 50, md: 200 }} flexDir={{ base: 'column', md: 'row' }}>
+            <Box width={{ base: '50%', md: '50%' }} display={'flex'} justifyContent={'center'}>
+                <Image src={Logo} borderRadius={'full'} />
             </Box>
-            <Box width={{md: '50%'}}>
-                <Heading as='h1' size='2xl' textAlign={'center'}>
+            <Box width={{ md: '50%' }}>
+                <Heading as='h1' size='2xl' textAlign={{ base: 'center', md: 'left' }}>
                     Una comunidad de estudiantes <br /> que comparten el mismo viaje que tú.
                 </Heading>
-                <Box width={{md: '50%'}}>
-                    <Text mt={5} textAlign={'left'} fontSize={{base: 25, md: 35}}>Únete hoy</Text>
-                    <Box mt={{base: 5, md: 10}}>
+                <Box width={{ md: '50%' }}>
+                    <Text mt={5} textAlign={'left'} fontSize={{ base: 25, md: 35 }}>Únete hoy</Text>
+                    <Box mt={{ base: 5, md: 10 }}>
                         <Box>
                             <Button
                                 leftIcon={<FcGoogle fontSize={25} />}
-                                width={{base: '90%', md: 'full'}}
+                                width={{ base: '90%', md: 'full' }}
                                 borderRadius={35}
                                 colorScheme={'blue'}
                                 variant={'outline'}
