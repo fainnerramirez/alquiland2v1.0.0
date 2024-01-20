@@ -23,7 +23,7 @@ export default function Navbar() {
 
   const Links = ["Inicio", "Acerca de", "Contacto"];
   const { isOpen } = useDisclosure();
-  const { userAuth, auth} = useContext(AuthContext)
+  const { userAuth, auth } = useContext(AuthContext)
 
   const handleLogout = async () => {
     console.log("Click")
@@ -32,7 +32,7 @@ export default function Navbar() {
     window.location.href = "/";
   }
 
-  console.log("User auth: ", userAuth);
+  console.log("User auth: ", userAuth, auth);
 
   return (
     <>
@@ -66,12 +66,12 @@ export default function Navbar() {
               >
                 <Avatar
                   size={{ base: "sm", sm: "sm", md: "md", lg: "md" }}
-                  src={`https://ui-avatars.com/api/?name=${userAuth?.displayName}&background=0D8ABC&color=fff&size=128`}
+                  src={`https://ui-avatars.com/api/?name=${userAuth?.displayName ?? userAuth?.email}&background=0D8ABC&color=fff&size=128`}
                 />
               </MenuButton>
               <MenuList>
                 <MenuItem>
-                  <Text fontWeight={'bold'}>{userAuth?.displayName}</Text>
+                  <Text fontWeight={'bold'}>{userAuth?.displayName ?? userAuth?.email}</Text>
                 </MenuItem>
                 <MenuDivider />
                 <MenuItem>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import {
     Button,
     Modal,
@@ -20,6 +20,8 @@ import {
     Select,
     HStack,
     VStack,
+    InputGroup,
+    InputRightElement,
 } from "@chakra-ui/react";
 import { Toast } from "../utils/Toast";
 import { ToastContainer, toast } from "react-toastify"
@@ -27,18 +29,25 @@ import { FcGoogle } from "react-icons/fc";
 import { MdArrowDropDown } from "react-icons/md";
 import { createStudent } from "../firebase/collections/querys/students";
 import { errorManagment } from "../firebase/errors/errorManagmentUser";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { AuthContext } from "../context/authContext";
 
 export const SingInModal = () => {
 
     const { isOpen, onOpen, onClose } = useDisclosure();
-    const initialRef = React.useRef(null);
-    const finalRef = React.useRef(null);
+    const initialRef = useRef(null);
+    const finalRef = useRef(null);
     const [isLoading, setIsLoading] = useState(false);
     const [username, setUsername] = useState(null);
-    const [email, setEmail] = React.useState(null);
+    const [email, setEmail] = useState(null);
+    const [password, setPassword] = useState(null)
     const [age, setAge] = useState(null);
     const [facultad, setFacultad] = useState(null);
     const [semestre, setSemestre] = useState(null);
+    const [show, setShow] = React.useState(false)
+    const handleClick = () => setShow(!show)
+
+    const { auth } = useContext(AuthContext);
 
     const handleFormStudent = async (event) => {
         event.preventDefault();
@@ -61,14 +70,23 @@ export const SingInModal = () => {
             try {
                 let response = createStudent(options)
                     .then((response) => {
-                        toast.success("Usuario creado correctamente", {
-                            theme: 'colored',
-                            position: 'top-center',
-                        });
+                        createUserWithEmailAndPassword(auth, email, password)
+                            .then((userCredential) => {
+                                toast.success("Usuario creado correctamente", {
+                                    theme: 'colored',
+                                    position: 'top-center',
+                                });
 
-                        setTimeout(() => {
-                            window.location.href = "/gallery";
-                        }, 2000);
+                                setTimeout(() => {
+                                    window.location.href = "/gallery";
+                                }, 2000);
+                            })
+                            .catch((error) => {
+                                setIsLoading(false);
+                            })
+                            .finally(() => {
+                                setIsLoading(false);
+                            })
                     })
                     .catch((error) => {
                         console.log("Error: ", error);
@@ -83,12 +101,10 @@ export const SingInModal = () => {
             }
         }
         else {
-
             toast.error("LLena todos los campos requeridos", {
                 theme: 'colored',
                 position: 'top-center'
             })
-
             setIsLoading(false);
         }
     }
@@ -124,11 +140,29 @@ export const SingInModal = () => {
                                 </FormControl>
                                 <FormControl isRequired>
                                     <FormLabel>Correo institucional o personal</FormLabel>
-                                    <Input
-                                        type="email"
-                                        onChange={(e) => setEmail(e.target.value)}
-                                    />
-                                    <FormHelperText>Escribe un correo válido. Te enviaremos un correo electrónico para verificarlo</FormHelperText>
+                                    <InputGroup size='md'>
+                                        <Input
+                                            pr='4.5rem'
+                                            type={'email'}
+                                            onChange={(e) => setEmail(e.target.value)}
+                                        />
+                                    </InputGroup>
+                                </FormControl>
+                                <FormControl isRequired>
+                                    <FormLabel>Contraseña</FormLabel>
+                                    <InputGroup size='md'>
+                                        <Input
+                                            pr='4.5rem'
+                                            type={show ? 'text' : 'password'}
+                                            onChange={(e) => setPassword(e.target.value)}
+                                        />
+                                        <InputRightElement width='4.5rem'>
+                                            <Button h='1.75rem' size='sm' onClick={handleClick}>
+                                                {show ? 'Hide' : 'Show'}
+                                            </Button>
+                                        </InputRightElement>
+                                    </InputGroup>
+                                    <FormHelperText>Mínimo de 7 caractéres</FormHelperText>
                                 </FormControl>
                                 <HStack spacing={5} width={'full'}>
                                     <FormControl isRequired>
