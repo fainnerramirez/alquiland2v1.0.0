@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { AuthContext } from '../context/authContext'
 import { getAuth, onAuthStateChanged } from 'firebase/auth'
 import { getAnfitrionByUserId } from '../firebase/collections/querys/anfitriones'
+import Navbar from '../components/Navbar'
 
 const Layout = ({ children }) => {
 

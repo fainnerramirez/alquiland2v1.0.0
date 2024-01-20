@@ -41,7 +41,7 @@ const HomePage = () => {
     return (
         <HStack spacing={10} justifyContent={'space-between'} mt={{md: 200}}>
             <Box width={'50%'} display={'flex'} justifyContent={'center'}>
-                <Image src={Logo} />
+                <Image src={Logo} borderRadius={'full'}/>
             </Box>
             <Box width={'50%'}>
                 <Heading as='h1' size='2xl'>
