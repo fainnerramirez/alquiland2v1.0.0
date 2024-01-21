@@ -58,7 +58,7 @@ const HomePage = () => {
                                 colorScheme={'blue'}
                                 variant={'outline'}
                                 onClick={handleClickGooglePopup}>
-                                Regístrate con Google
+                                Ingresa con Google
                             </Button>
                         </Box>
                         <Box>

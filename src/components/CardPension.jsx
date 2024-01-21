@@ -65,7 +65,7 @@ export const CardPension = ({
             >
               <Avatar
                 src={anuncio.userPhoto}
-                size='xs'
+                size={'sm'}
                 name={anuncio.username}
                 ml={-1}
                 mr={2}
