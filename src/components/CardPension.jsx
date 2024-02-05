@@ -55,7 +55,7 @@ export const CardPension = ({
               fallbackSrc="https://via.placeholder.com/420"
               borderRadius={'lg'}
             />
-          </Box>
+          </Box> 
           <Box width={'full'} mt={2}>
             <Tag
               bg={'transparent'}
@@ -67,7 +67,7 @@ export const CardPension = ({
                 src={anuncio.userPhoto}
                 size={'sm'}
                 name={anuncio.username}
-                ml={-1}
+                ml={-2}
                 mr={2}
               />
               <TagLabel fontWeight={'bold'}>{anuncio.username}</TagLabel>

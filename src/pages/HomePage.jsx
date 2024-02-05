@@ -60,19 +60,22 @@ const HomePage = () => {
                                 onClick={handleClickGooglePopup}>
                                 Ingresa con Google
                             </Button>
+                            <Box>
+                                <Text fontSize={12}>Al registrarte, aceptas los Términos de servicio y la Política de privacidad, incluida la política de Uso de Cookies.</Text>
+                            </Box>
                         </Box>
-                        <Box>
+                        {/* <Box>
                             <Box position='relative' padding='10'>
                                 <Divider />
                                 <AbsoluteCenter bg='white' px='4'>
                                     o
                                 </AbsoluteCenter>
                             </Box>
-                        </Box>
-                        <Box>
+                        </Box> */}
+                        {/* <Box>
                             <SingInModal />
                             <Text fontSize={12}>Al registrarte, aceptas los Términos de servicio y la Política de privacidad, incluida la política de Uso de Cookies.</Text>
-                        </Box>
+                        </Box> */}
                     </Box>
                 </Box>
                 {/* <Box mt={10} mb={20}>
