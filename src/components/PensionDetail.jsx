@@ -38,14 +38,14 @@ const PensionDetail = () => {
                     <Button leftIcon={<IoIosArrowBack />} colorScheme='teal'>Regresar</Button>
                 </Box>
             </Link>
-            <HStack w={'auto'}>
+            <HStack w={{base: '90%', md:'auto'}} flexDirection={{base: 'column'}} margin={'auto'} mt={20}>
                 {
                     document != null ?
                         <>
                             <Box height={'auto'} width={'auto'}>
                                 <Image src={document?.urlPhoto} borderRadius={'lg'} width={600} height={450} />
                             </Box>
-                            <Box width={'400px'}>
+                            <Box width={'90%'} margin={'auto'}>
                                 <Heading textTransform={'capitalize'}>{document?.title}</Heading>
                                 <Text textTransform={'capitalize'} fontWeight={'bold'}>{document?.city} - {document?.country}</Text>
                                 <Text>agregado el {document?.dateCreatedAt}</Text>
@@ -111,9 +111,9 @@ const PensionDetail = () => {
                         />
                 }
             </HStack>
-            <Box>
+            <Box width={'90%'} margin={'auto'}>
                 <Text fontSize={20} fontWeight={'bold'} pt={5} pb={5}>Otras pensiones</Text>
-                <HStack spacing={5} >
+                <HStack spacing={5}>
                     {
                         document != null ?
                             arrayDocuments.splice(0, 3).map((doc, i) => {

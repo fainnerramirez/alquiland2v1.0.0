@@ -43,8 +43,8 @@ export const CardPension = ({
       onClick={handleImageDetails}
       style={{ cursor: 'pointer' }}
     >
-      <Card border={'none'} boxShadow={'none'} maxW='sm'>
-        <CardBody padding="10px">
+      <Card border={'none'} boxShadow={'none'} maxW={{base: 'sm', md: 'md', lg: 'lg', xl: 'xl'}}>
+        <CardBody padding="10px" display={'flex'} justifyContent={'center'} flexDirection={'column'}>
           <Box>
             <Image
               src={anuncio.urlPhoto}
