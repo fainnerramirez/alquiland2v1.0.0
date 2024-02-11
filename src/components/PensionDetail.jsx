@@ -38,7 +38,7 @@ const PensionDetail = () => {
                     <Button leftIcon={<IoIosArrowBack />} colorScheme='teal'>Regresar</Button>
                 </Box>
             </Link>
-            <HStack w={{base: '90%', md:'auto'}} flexDirection={{base: 'column'}} margin={'auto'} mt={20}>
+            <HStack w={{base: '90%', md:'auto'}} flexDirection={{base: 'column', md: 'row'}} margin={'auto'} mt={20}>
                 {
                     document != null ?
                         <>
